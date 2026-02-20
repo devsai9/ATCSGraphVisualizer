@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    font-family: "Poppins", sans-serif !important;
+    color-scheme: dark;
+}
+
+body {
+    background-color: hsl(0, 0%, 22%);
+    color: white;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 1fr 220px;
+}
+.canvas-wrapper {
+    display: block;
+}
+
+.phone-container {
+    display: none;
+}
+
+.phone-container p {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.credits {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    margin: 0;
+    font-weight: bold;
+
+    user-select: none;
+    pointer-events: none;
+}
+
+@media only screen and (max-width: 900px) {
+    .phone-container {
+        display: block;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .container {
+        display: none;
+    }
+}
+
+.ui-controls {
+    background-color: hsl(0, 0%, 12%);
+    width: 100vw;
+    height: 220px;
+
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.ui-controls * {
+    margin: 0;
+}
+
+.control {
+    padding: 8px;
+    text-align: center;
+}
+
+.control:not(:last-of-type) {
+    border-right: 1px solid white;
+}
+
+.control .title {
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.control select, .control input[type="number"], .control input[type="text"] {
+    outline: 0;
+    border: 2px solid hsl(0, 0%, 80%);
+    padding: 3px 7px;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.control button {
+    border: 0;
+    outline: 2px solid hsl(0, 0%, 82%);
+    background-color: hsl(0, 0%, 42%);
+    border-radius: 10px;
+    
+    margin: 10px;
+    padding: 10px 20px;
+    
+    font-size: 0.9rem;
+    font-weight: bold;
+    
+    cursor: pointer;
+
+    transition: background-color 0.2s ease-in-out;
+}
+
+.control button:has(+ button) {
+    margin-right: 0;
+}
+
+.control button:hover:not(:disabled) {
+    background-color: hsl(0, 0%, 32%);
+}
+
+.control button:active:not(:disabled) {
+    background-color: hsl(0, 0%, 22%);
+}
+
+.control button:disabled {
+    cursor: not-allowed;
+}
+
+.tooltip {
+    background-color: hsl(0, 0%, 24%);
+    border: 3px solid hsl(0, 0%, 44%);
+    border-radius: 5px;
+    padding: 2px 7px;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: none;
+
+    user-select: none;
+    pointer-events: none;
+}
