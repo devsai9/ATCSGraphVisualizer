@@ -176,7 +176,7 @@ export function handleAlgoChange(graphAlgo) {
 export function drawFullGraph(data, redoVertexPositions = false) {
     if (window.innerWidth < 900) return;
     
-    resizeCanvas();
+    // resizeCanvas();
     clearCanvas();
     
     ctx.setTransform(

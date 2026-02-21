@@ -5,6 +5,7 @@ import { attachUIEventListeners, config, handleMouseMove, handleScrollWheel } fr
 
 attachUIEventListeners();
 attachCanvasEventListeners();
+resizeCanvas();
 
 window.addEventListener("resize", () => {
     resizeCanvas();
