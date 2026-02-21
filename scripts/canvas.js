@@ -1,4 +1,4 @@
-import { config, updateTooltipText, updateTooltipPos, updateTooltipBorderColor, hideTooltip, getTooltipRect, GRAPH_ALGOS } from "./uiControls.js";
+import { config, updateTooltipText, updateTooltipPos, updateTooltipBorderColor, hideTooltip, GRAPH_ALGOS } from "./uiControls.js";
 import { toTitleCase } from "./util.js";
 
 const canvasWrapper = document.querySelector(".canvas-wrapper");
@@ -6,7 +6,7 @@ const canvas = document.querySelector("#canvas");
 const ctx = canvas.getContext("2d");
 
 const drawPositions = [];
-let VERTEX_RADIUS = 20;
+let VERTEX_RADIUS = GRAPH_ALGOS.CARTESIAN;
 
 export function resizeCanvas() {
     canvas.width = 0;
@@ -99,14 +99,36 @@ export function drawFullGraph(data, redoVertexPositions = false) {
             data[k]["colorH"] = Math.random() * 360;
         }
     }
-    
+
     // Draw edges
+    drawEdges(data, data);
+
+    // Draw nodes
+    drawNodes(data);
+}
+
+export function highlistNodeFirstDegree(data, k) {
+    if (k == null || data[k] == null) return;
+    
+    clearCanvas();
+    
+    drawEdges(data, { k: data[k] });
+
+    const nodesToDraw = { k: data[k] };
+    for (const c of Object.keys(data[k].connections)) {
+        nodesToDraw[c] = data[c];
+    }
+
+    drawNodes(nodesToDraw, true);
+}
+
+function drawEdges(lookupData, drawData) {
     ctx.strokeStyle = "#cccccc";
     ctx.lineWidth = 2;
 
     const paintedEdges = [];
-    for (const k of Object.keys(data)) {
-        const v = data[k];
+    for (const k of Object.keys(drawData)) {
+        const v = drawData[k];
 
         for (const c of Object.keys(v.connections)) {
             const includes = paintedEdges.filter((item) => item.from == c && item.to == k);
@@ -114,21 +136,31 @@ export function drawFullGraph(data, redoVertexPositions = false) {
 
             ctx.beginPath();
             ctx.moveTo(v.pos.x, v.pos.y);
-            ctx.lineTo(data[c].pos.x, data[c].pos.y);
+            ctx.lineTo(lookupData[c].pos.x, lookupData[c].pos.y);
             ctx.stroke();
 
             paintedEdges.push({ from: k, to: c });
         }
     }
+}
 
-    // Draw nodes
-    for (const k of Object.keys(data)) {
-        const v = data[k];
+function drawNodes(drawData, emphasizeFirst = false) {
+    const keys = Object.keys(drawData);
+
+    for (let i = 0; i < keys.length; i++) {
+        const k = keys[i];
+        const v = drawData[k];
 
         ctx.beginPath();
         ctx.fillStyle = `hsl(${v.colorH}, 60%, 48%)`;
         ctx.arc(v.pos.x, v.pos.y, VERTEX_RADIUS, 0, 2 * Math.PI, false);
         ctx.fill();
+
+        if (i == 0 && emphasizeFirst) {
+            ctx.lineWidth = 6;
+            ctx.strokeStyle = 'white';
+            ctx.stroke();
+        }
     }
 }
 
@@ -244,29 +276,22 @@ export function connectTwoNodes(data, start, target, onComplete = () => {}) {
     drawPath(data, path, 750, onComplete);
 }
 
-export function updateTooltip(data, event) {
-    if (!config.tooltipsEnabled) return true;
-
-    if (!config.graphEnabled) return true;
+export function getClosestNodeToMouse(data, event) {
+    if (!config.graphEnabled) return null;
 
     const rect = canvas.getBoundingClientRect();
+    if (!(event.clientX > rect.x && event.clientX < rect.x + rect.width)) return null;
+    if (!(event.clientY > rect.y && event.clientY < rect.y + rect.height)) return null;
 
-    if (!(event.clientX > rect.x && event.clientX < rect.x + rect.width)) return true;
-    if (!(event.clientY > rect.y && event.clientY < rect.y + rect.height)) return true;
-
-    let found = false;
+    let found = null;
     for (const k of Object.keys(data)) {
         const v = data[k];
 
         if (Math.abs(v.pos.x - event.clientX) <= VERTEX_RADIUS && Math.abs(v.pos.y - event.clientY) <= VERTEX_RADIUS) {
-            updateTooltipText(v.label || toTitleCase(k));
-            updateTooltipPos(event.clientX + 7, event.clientY + 5);
-            updateTooltipBorderColor(v.colorH);
-
-            found = true;
+            found = k;
             break;
         }
     }
 
-    if (!found) hideTooltip();
+    return found;
 }

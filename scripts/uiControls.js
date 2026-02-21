@@ -1,5 +1,5 @@
 import { data, hamPaths } from "./data.js";
-import { drawFullGraph, drawPath, clearCanvas, connectTwoNodes, handleAlgoChange } from "./canvas.js";
+import { drawFullGraph, drawPath, clearCanvas, connectTwoNodes, handleAlgoChange, getClosestNodeToMouse, highlistNodeFirstDegree } from "./canvas.js";
 import { clamp, toTitleCase } from "./util.js";
 
 export const DATA_MODES = Object.freeze({
@@ -8,7 +8,7 @@ export const DATA_MODES = Object.freeze({
 });
 
 export const GRAPH_ALGOS = Object.freeze({
-    CARTESIAN: 20,
+    CARTESIAN: 15,
     RADIAL: 12
 });
 
@@ -167,6 +167,41 @@ function updateTextDependencies() {
     });
 }
 
+export function handleMouseMove(data, event) {
+    if (!config.tooltipsEnabled) return;
+
+    const closestNode = getClosestNodeToMouse(data, event);
+
+    if (closestNode == null || data[closestNode] == null) {
+        hideTooltip();
+        return true;
+    }
+    
+    const v = data[closestNode];
+
+    tooltip.style.display = "block";
+    updateTooltipText(v.label || toTitleCase(closestNode));
+    updateTooltipBorderColor(v.colorH);
+    updateTooltipPos(event.clientX + 7, event.clientY + 5);
+}
+
+let lastHighlighted = null;
+export function handleMouseClick(data, event) {
+    const closestNode = getClosestNodeToMouse(data, event);
+
+    if (closestNode == null || data[closestNode] == null) return true;
+
+    if (lastHighlighted == closestNode) {
+        lastHighlighted = null;
+        drawFullGraph(data, false);
+        return false;
+    }
+
+    lastHighlighted = closestNode;
+
+    highlistNodeFirstDegree(data, closestNode);
+}
+
 function disableAllElems(className) {
     document.querySelectorAll("." + className).forEach((elem) => elem.setAttribute("disabled", "true"));
 }
@@ -177,10 +212,6 @@ function enableAllElems(className) {
 
 export function hideTooltip() {
     tooltip.style.display = "none";
-}
-
-export function getTooltipRect() {
-    return tooltip.getBoundingClientRect();
 }
 
 export function updateTooltipBorderColor(h) {
