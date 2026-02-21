@@ -67,7 +67,7 @@ export function drawGraph(data, redoVertexPositions) {
             if (!valid) continue;
 
             drawPositions.push({ x, y });
-            data[k].pos = { x, y };
+            data[k]["pos"] = { x, y };
             data[k]["colorH"] = Math.random() * 360;
         }
     }

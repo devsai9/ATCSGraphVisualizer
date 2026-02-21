@@ -308,7 +308,6 @@ const studentHamiltonianPath = [
 
 const groupData = {
     "roleplay club": {
-        pos: { x: null, y: null },
         connections: {
             "ai club": 1,
             "anime club": 1,
@@ -329,7 +328,6 @@ const groupData = {
         },
     },
     "young dems": {
-        pos: { x: null, y: null },
         connections: {
             "cad club": 1,
             "empire mock trial": 1,
@@ -340,7 +338,6 @@ const groupData = {
         },
     },
     "national dance honor society (delta eta pi)": {
-        pos: { x: null, y: null },
         connections: {
             dance: 6,
             "drill team": 3,
@@ -365,7 +362,6 @@ const groupData = {
         },
     },
     "make-a-wish": {
-        pos: { x: null, y: null },
         connections: {
             "national art honor society": 1,
             unicef: 2,
@@ -388,7 +384,6 @@ const groupData = {
         },
     },
     "anime club": {
-        pos: { x: null, y: null },
         connections: {
             "active minds": 1,
             "cad club": 1,
@@ -424,11 +419,9 @@ const groupData = {
         },
     },
     "eagle ambassadors": {
-        pos: { x: null, y: null },
         connections: { football: 1, "moot court": 1, "outdoor track": 1 },
     },
     "taylor swift club": {
-        pos: { x: null, y: null },
         connections: {
             band: 1,
             "c# accapella": 2,
@@ -457,7 +450,6 @@ const groupData = {
         },
     },
     "south asian culture club": {
-        pos: { x: null, y: null },
         connections: {
             "centennial competitive coding": 1,
             "competitive coding club": 1,
@@ -471,7 +463,6 @@ const groupData = {
         },
     },
     "rho kappa": {
-        pos: { x: null, y: null },
         connections: {
             "awkward improv": 1,
             "chess club": 1,
@@ -523,7 +514,6 @@ const groupData = {
         },
     },
     "lefa leaders of economics and finance in america": {
-        pos: { x: null, y: null },
         connections: {
             "intern mentor": 1,
             "national art honor society": 1,
@@ -561,7 +551,6 @@ const groupData = {
         },
     },
     "girl up foundation": {
-        pos: { x: null, y: null },
         connections: {
             dance: 1,
             "drill team": 1,
@@ -596,7 +585,6 @@ const groupData = {
         },
     },
     "national math honor society": {
-        pos: { x: null, y: null },
         connections: {
             "ai club": 6,
             badminton: 3,
@@ -689,7 +677,6 @@ const groupData = {
         },
     },
     "theatre honor society": {
-        pos: { x: null, y: null },
         connections: {
             "active minds": 1,
             care4kiddos: 1,
@@ -698,7 +685,6 @@ const groupData = {
         },
     },
     "girls who code": {
-        pos: { x: null, y: null },
         connections: {
             "french club": 1,
             "girl up foundation": 1,
@@ -716,7 +702,6 @@ const groupData = {
         },
     },
     "national tech honor society": {
-        pos: { x: null, y: null },
         connections: {
             "ai club": 5,
             badminton: 1,
@@ -776,7 +761,6 @@ const groupData = {
         },
     },
     "moot court": {
-        pos: { x: null, y: null },
         connections: {
             "cross country": 1,
             "empire mock trial": 2,
@@ -806,7 +790,6 @@ const groupData = {
         },
     },
     band: {
-        pos: { x: null, y: null },
         connections: {
             "american cancer society": 1,
             "american sign language": 1,
@@ -866,7 +849,6 @@ const groupData = {
         },
     },
     "class board": {
-        pos: { x: null, y: null },
         connections: {
             beautyinme: 1,
             dance: 1,
@@ -912,7 +894,6 @@ const groupData = {
         },
     },
     dance: {
-        pos: { x: null, y: null },
         connections: {
             "drill team": 4,
             "girl up foundation": 1,
@@ -951,7 +932,6 @@ const groupData = {
         },
     },
     care4kiddos: {
-        pos: { x: null, y: null },
         connections: {
             "active minds": 1,
             "youth climate institute": 2,
@@ -973,7 +953,6 @@ const groupData = {
         },
     },
     "american cancer society": {
-        pos: { x: null, y: null },
         connections: {
             "american sign language": 1,
             band: 1,
@@ -991,7 +970,6 @@ const groupData = {
         },
     },
     "humanities club": {
-        pos: { x: null, y: null },
         connections: {
             band: 2,
             "fantasy sports club": 1,
@@ -1015,7 +993,6 @@ const groupData = {
         },
     },
     "6th man": {
-        pos: { x: null, y: null },
         connections: {
             baseball: 1,
             "fca fellowship of christian athletes": 1,
@@ -1025,7 +1002,6 @@ const groupData = {
         },
     },
     "national history honor society": {
-        pos: { x: null, y: null },
         connections: {
             "humanities program": 5,
             "math journal": 2,
@@ -1100,12 +1076,8 @@ const groupData = {
             "astronomy & rocket club": 1,
         },
     },
-    "bollywood dance": {
-        pos: { x: null, y: null },
-        connections: { "key club": 1, letterpals: 1 },
-    },
+    "bollywood dance": { connections: { "key club": 1, letterpals: 1 } },
     "german club": {
-        pos: { x: null, y: null },
         connections: {
             band: 1,
             "cross country": 1,
@@ -1122,7 +1094,6 @@ const groupData = {
         },
     },
     "helping hands for homeless hearts": {
-        pos: { x: null, y: null },
         connections: {
             "american cancer society": 1,
             "fca fellowship of christian athletes": 1,
@@ -1132,7 +1103,6 @@ const groupData = {
         },
     },
     "cad club": {
-        pos: { x: null, y: null },
         connections: {
             "active minds": 1,
             "anime club": 1,
@@ -1161,7 +1131,6 @@ const groupData = {
         },
     },
     "fca fellowship of christian athletes": {
-        pos: { x: null, y: null },
         connections: {
             "american cancer society": 2,
             "american sign language": 1,
@@ -1183,7 +1152,6 @@ const groupData = {
         },
     },
     baseball: {
-        pos: { x: null, y: null },
         connections: {
             basketball: 1,
             "fantasy sports club": 2,
@@ -1204,7 +1172,6 @@ const groupData = {
         },
     },
     "active minds": {
-        pos: { x: null, y: null },
         connections: {
             "color guard": 1,
             "marching band": 1,
@@ -1240,7 +1207,6 @@ const groupData = {
         },
     },
     "it's academic": {
-        pos: { x: null, y: null },
         connections: {
             "centennial competitive coding": 1,
             "competitive coding club": 1,
@@ -1296,7 +1262,6 @@ const groupData = {
         },
     },
     "ethics bowl": {
-        pos: { x: null, y: null },
         connections: {
             band: 1,
             "humanities club": 1,
@@ -1326,7 +1291,6 @@ const groupData = {
         },
     },
     "tri-m honor society": {
-        pos: { x: null, y: null },
         connections: {
             "cross country": 2,
             "ftc robotics": 2,
@@ -1405,7 +1369,6 @@ const groupData = {
         },
     },
     "sga student government association": {
-        pos: { x: null, y: null },
         connections: {
             "national honor society": 3,
             "national math honor society": 3,
@@ -1436,7 +1399,6 @@ const groupData = {
         },
     },
     "desco (design club)": {
-        pos: { x: null, y: null },
         connections: {
             "active minds": 1,
             "anime club": 1,
@@ -1467,7 +1429,6 @@ const groupData = {
         },
     },
     pltw: {
-        pos: { x: null, y: null },
         connections: {
             baseball: 1,
             "best buddies": 1,
@@ -1481,7 +1442,6 @@ const groupData = {
         },
     },
     "math team": {
-        pos: { x: null, y: null },
         connections: {
             "ai club": 3,
             badminton: 1,
@@ -1535,7 +1495,6 @@ const groupData = {
         },
     },
     "youth climate institute": {
-        pos: { x: null, y: null },
         connections: {
             "active minds": 1,
             care4kiddos: 2,
@@ -1570,7 +1529,6 @@ const groupData = {
         },
     },
     golf: {
-        pos: { x: null, y: null },
         connections: {
             "amnesty international": 1,
             badminton: 1,
@@ -1591,7 +1549,6 @@ const groupData = {
         },
     },
     arl: {
-        pos: { x: null, y: null },
         connections: {
             "black student union": 1,
             dance: 1,
@@ -1616,7 +1573,6 @@ const groupData = {
         },
     },
     "ftc robotics": {
-        pos: { x: null, y: null },
         connections: {
             "cross country": 2,
             "humanities program": 2,
@@ -1652,7 +1608,6 @@ const groupData = {
         },
     },
     "cross country": {
-        pos: { x: null, y: null },
         connections: {
             "american cancer society": 1,
             "american sign language": 1,
@@ -1698,7 +1653,6 @@ const groupData = {
         },
     },
     "national french honor society": {
-        pos: { x: null, y: null },
         connections: {
             "cross country": 2,
             "humanities program": 5,
@@ -1739,7 +1693,6 @@ const groupData = {
         },
     },
     "speech & debate": {
-        pos: { x: null, y: null },
         connections: {
             "centennial competitive coding": 1,
             "competitive coding club": 1,
@@ -1795,7 +1748,6 @@ const groupData = {
         },
     },
     "field hockey": {
-        pos: { x: null, y: null },
         connections: {
             aquila: 1,
             "best buddies": 1,
@@ -1812,7 +1764,6 @@ const groupData = {
         },
     },
     "color guard": {
-        pos: { x: null, y: null },
         connections: {
             "active minds": 1,
             "marching band": 1,
@@ -1831,7 +1782,6 @@ const groupData = {
         },
     },
     "k-pop club": {
-        pos: { x: null, y: null },
         connections: {
             "crocheting/knitting club": 1,
             "kasa korean american student association": 1,
@@ -1864,7 +1814,6 @@ const groupData = {
         },
     },
     badminton: {
-        pos: { x: null, y: null },
         connections: {
             "ai club": 2,
             "centennial competitive coding": 1,
@@ -1904,7 +1853,6 @@ const groupData = {
         },
     },
     "zaching against cancer": {
-        pos: { x: null, y: null },
         connections: {
             baseball: 1,
             basketball: 1,
@@ -1919,11 +1867,9 @@ const groupData = {
         },
     },
     "just dance club": {
-        pos: { x: null, y: null },
         connections: { "humanities program": 2, orchestra: 2 },
     },
     "science bowl": {
-        pos: { x: null, y: null },
         connections: {
             band: 1,
             "ethics bowl": 2,
@@ -1949,7 +1895,6 @@ const groupData = {
         },
     },
     tennis: {
-        pos: { x: null, y: null },
         connections: {
             "humanities program": 1,
             "intern mentor": 2,
@@ -1982,7 +1927,6 @@ const groupData = {
         },
     },
     "live poets society": {
-        pos: { x: null, y: null },
         connections: {
             "chinese club": 1,
             "humanities program": 2,
@@ -2005,7 +1949,6 @@ const groupData = {
         },
     },
     "culinary club": {
-        pos: { x: null, y: null },
         connections: {
             "c# accapella": 1,
             chorus: 1,
@@ -2030,7 +1973,6 @@ const groupData = {
         },
     },
     "chess club": {
-        pos: { x: null, y: null },
         connections: {
             "active minds": 1,
             "anime club": 2,
@@ -2072,7 +2014,6 @@ const groupData = {
         },
     },
     "awkward improv": {
-        pos: { x: null, y: null },
         connections: {
             "chess club": 2,
             "national history honor society": 1,
@@ -2102,7 +2043,6 @@ const groupData = {
         },
     },
     "volleyball team": {
-        pos: { x: null, y: null },
         connections: {
             beautyinme: 2,
             "class board": 2,
@@ -2139,7 +2079,6 @@ const groupData = {
         },
     },
     "technology journal": {
-        pos: { x: null, y: null },
         connections: {
             "ai club": 2,
             "national tech honor society": 3,
@@ -2168,7 +2107,6 @@ const groupData = {
         },
     },
     "mock trial": {
-        pos: { x: null, y: null },
         connections: {
             "cross country": 1,
             "empire mock trial": 4,
@@ -2199,7 +2137,6 @@ const groupData = {
         },
     },
     "red cross": {
-        pos: { x: null, y: null },
         connections: {
             "marching band": 1,
             "mun model united nations": 3,
@@ -2241,7 +2178,6 @@ const groupData = {
         },
     },
     "best buddies": {
-        pos: { x: null, y: null },
         connections: {
             baseball: 2,
             "fantasy sports club": 1,
@@ -2271,7 +2207,6 @@ const groupData = {
         },
     },
     pyoneers: {
-        pos: { x: null, y: null },
         connections: {
             "ai club": 7,
             badminton: 2,
@@ -2325,7 +2260,6 @@ const groupData = {
         },
     },
     letterpals: {
-        pos: { x: null, y: null },
         connections: {
             "active minds": 1,
             "music mentors": 1,
@@ -2351,7 +2285,6 @@ const groupData = {
         },
     },
     "south asian student association": {
-        pos: { x: null, y: null },
         connections: {
             cranes4kids: 1,
             "crocheting/knitting club": 1,
@@ -2363,7 +2296,6 @@ const groupData = {
         },
     },
     "national psychology honor society (psi alpha)": {
-        pos: { x: null, y: null },
         connections: {
             "intern mentor": 2,
             "national honor society": 1,
@@ -2380,12 +2312,8 @@ const groupData = {
             "speech & debate": 1,
         },
     },
-    "investment club": {
-        pos: { x: null, y: null },
-        connections: { horizon: 1 },
-    },
+    "investment club": { connections: { horizon: 1 } },
     "maryland voices": {
-        pos: { x: null, y: null },
         connections: {
             "humanities program": 1,
             "intern mentor": 2,
@@ -2415,7 +2343,6 @@ const groupData = {
         },
     },
     chorus: {
-        pos: { x: null, y: null },
         connections: {
             "c# accapella": 3,
             "color guard": 1,
@@ -2450,7 +2377,6 @@ const groupData = {
         },
     },
     "french club": {
-        pos: { x: null, y: null },
         connections: {
             "girl up foundation": 1,
             "girls who code": 1,
@@ -2480,7 +2406,6 @@ const groupData = {
         },
     },
     "national chinese honor society": {
-        pos: { x: null, y: null },
         connections: {
             "chinese club": 2,
             "humanities program": 1,
@@ -2493,7 +2418,6 @@ const groupData = {
         },
     },
     "national english honor society": {
-        pos: { x: null, y: null },
         connections: {
             "cross country": 3,
             "ftc robotics": 2,
@@ -2573,7 +2497,6 @@ const groupData = {
         },
     },
     "outdoor track": {
-        pos: { x: null, y: null },
         connections: {
             "cross country": 9,
             "empire mock trial": 1,
@@ -2612,7 +2535,6 @@ const groupData = {
         },
     },
     "jazz band": {
-        pos: { x: null, y: null },
         connections: {
             "marching band": 2,
             "moot court": 1,
@@ -2627,7 +2549,6 @@ const groupData = {
         },
     },
     lacrosse: {
-        pos: { x: null, y: null },
         connections: {
             "class board": 1,
             "cad club": 1,
@@ -2642,7 +2563,6 @@ const groupData = {
         },
     },
     "kasa korean american student association": {
-        pos: { x: null, y: null },
         connections: {
             cheerleading: 1,
             "drill team": 1,
@@ -2658,7 +2578,6 @@ const groupData = {
         },
     },
     "fbla future business leaders of america": {
-        pos: { x: null, y: null },
         connections: {
             band: 1,
             "class board": 1,
@@ -2688,7 +2607,6 @@ const groupData = {
         },
     },
     "steel band": {
-        pos: { x: null, y: null },
         connections: {
             band: 1,
             "class board": 1,
@@ -2703,7 +2621,6 @@ const groupData = {
         },
     },
     "empire mock trial": {
-        pos: { x: null, y: null },
         connections: {
             "cross country": 1,
             "humanities program": 2,
@@ -2735,7 +2652,6 @@ const groupData = {
         },
     },
     "science olympiad": {
-        pos: { x: null, y: null },
         connections: {
             band: 5,
             "humanities program": 5,
@@ -2786,7 +2702,6 @@ const groupData = {
         },
     },
     "green school": {
-        pos: { x: null, y: null },
         connections: {
             "creactive youth": 1,
             heartwise: 1,
@@ -2798,7 +2713,6 @@ const groupData = {
         },
     },
     "key club": {
-        pos: { x: null, y: null },
         connections: {
             "best buddies": 2,
             "intern mentor": 1,
@@ -2815,7 +2729,6 @@ const groupData = {
         },
     },
     "scholars leadership program": {
-        pos: { x: null, y: null },
         connections: {
             beautyinme: 1,
             "class board": 1,
@@ -2830,7 +2743,6 @@ const groupData = {
         },
     },
     "msa muslim student association": {
-        pos: { x: null, y: null },
         connections: {
             "ai club": 1,
             arl: 1,
@@ -2854,7 +2766,6 @@ const groupData = {
         },
     },
     beautyinme: {
-        pos: { x: null, y: null },
         connections: {
             "class board": 1,
             dance: 4,
@@ -2872,7 +2783,6 @@ const groupData = {
         },
     },
     "creactive youth": {
-        pos: { x: null, y: null },
         connections: {
             "american sign language": 1,
             aquila: 1,
@@ -2907,7 +2817,6 @@ const groupData = {
         },
     },
     "spanish honor society": {
-        pos: { x: null, y: null },
         connections: {
             "humanities program": 2,
             "math journal": 2,
@@ -2935,7 +2844,6 @@ const groupData = {
         },
     },
     basketball: {
-        pos: { x: null, y: null },
         connections: {
             baseball: 1,
             "fantasy sports club": 1,
@@ -2954,7 +2862,6 @@ const groupData = {
         },
     },
     "crocheting/knitting club": {
-        pos: { x: null, y: null },
         connections: {
             band: 1,
             "marching band": 1,
@@ -3005,7 +2912,6 @@ const groupData = {
         },
     },
     "black student union": {
-        pos: { x: null, y: null },
         connections: {
             dance: 3,
             "indoor track": 1,
@@ -3019,7 +2925,6 @@ const groupData = {
         },
     },
     orchestra: {
-        pos: { x: null, y: null },
         connections: {
             "active minds": 2,
             "color guard": 1,
@@ -3090,7 +2995,6 @@ const groupData = {
         },
     },
     theater: {
-        pos: { x: null, y: null },
         connections: {
             soccer: 2,
             band: 6,
@@ -3153,7 +3057,6 @@ const groupData = {
         },
     },
     "alpha achievers": {
-        pos: { x: null, y: null },
         connections: {
             band: 1,
             "sga student government association": 1,
@@ -3161,7 +3064,6 @@ const groupData = {
         },
     },
     "allied softball and bowling": {
-        pos: { x: null, y: null },
         connections: {
             aquila: 1,
             "best buddies": 1,
@@ -3173,7 +3075,6 @@ const groupData = {
         },
     },
     "international thespian society": {
-        pos: { x: null, y: null },
         connections: {
             band: 1,
             "c# accapella": 1,
@@ -3205,7 +3106,6 @@ const groupData = {
         },
     },
     "ultimate disc club": {
-        pos: { x: null, y: null },
         connections: {
             baseball: 1,
             "best buddies": 1,
@@ -3252,7 +3152,6 @@ const groupData = {
         },
     },
     "salvation army club": {
-        pos: { x: null, y: null },
         connections: {
             "intern mentor": 1,
             "lefa leaders of economics and finance in america": 1,
@@ -3275,7 +3174,6 @@ const groupData = {
         },
     },
     cranes4kids: {
-        pos: { x: null, y: null },
         connections: {
             "crocheting/knitting club": 5,
             "indian dance club": 2,
@@ -3303,7 +3201,6 @@ const groupData = {
         },
     },
     "american sign language": {
-        pos: { x: null, y: null },
         connections: {
             "american cancer society": 1,
             band: 1,
@@ -3331,7 +3228,6 @@ const groupData = {
         },
     },
     "pre-med club": {
-        pos: { x: null, y: null },
         connections: {
             "marching band": 1,
             "mun model united nations": 2,
@@ -3386,12 +3282,8 @@ const groupData = {
             pyoneers: 1,
         },
     },
-    volunteens: {
-        pos: { x: null, y: null },
-        connections: { "best buddies": 1, horizon: 1, softball: 1 },
-    },
+    volunteens: { connections: { "best buddies": 1, horizon: 1, softball: 1 } },
     "amnesty international": {
-        pos: { x: null, y: null },
         connections: {
             badminton: 1,
             cranes4kids: 1,
@@ -3421,7 +3313,6 @@ const groupData = {
         },
     },
     softball: {
-        pos: { x: null, y: null },
         connections: {
             "class board": 1,
             orchestra: 1,
@@ -3438,7 +3329,6 @@ const groupData = {
         },
     },
     unicef: {
-        pos: { x: null, y: null },
         connections: {
             "intern mentor": 2,
             "lefa leaders of economics and finance in america": 1,
@@ -3468,7 +3358,6 @@ const groupData = {
         },
     },
     "mun model united nations": {
-        pos: { x: null, y: null },
         connections: {
             badminton: 2,
             "clothing collective": 1,
@@ -3513,7 +3402,6 @@ const groupData = {
         },
     },
     "science national honor society": {
-        pos: { x: null, y: null },
         connections: {
             "ai club": 2,
             badminton: 1,
@@ -3589,7 +3477,6 @@ const groupData = {
         },
     },
     "chinese club": {
-        pos: { x: null, y: null },
         connections: {
             "humanities program": 1,
             "live poets society": 1,
@@ -3607,7 +3494,6 @@ const groupData = {
         },
     },
     paws: {
-        pos: { x: null, y: null },
         connections: {
             "class board": 1,
             orchestra: 1,
@@ -3627,7 +3513,6 @@ const groupData = {
         },
     },
     "equality now period": {
-        pos: { x: null, y: null },
         connections: {
             "active minds": 1,
             care4kiddos: 1,
@@ -3636,7 +3521,6 @@ const groupData = {
         },
     },
     "web development club": {
-        pos: { x: null, y: null },
         connections: {
             "active minds": 1,
             "color guard": 1,
@@ -3675,7 +3559,6 @@ const groupData = {
         },
     },
     "music mentors": {
-        pos: { x: null, y: null },
         connections: {
             "humanities program": 5,
             "math journal": 1,
@@ -3730,7 +3613,6 @@ const groupData = {
         },
     },
     cheerleading: {
-        pos: { x: null, y: null },
         connections: {
             beautyinme: 1,
             "american sign language": 1,
@@ -3761,7 +3643,6 @@ const groupData = {
         },
     },
     "humanities program": {
-        pos: { x: null, y: null },
         connections: {
             "intern mentor": 7,
             tennis: 1,
@@ -3848,7 +3729,6 @@ const groupData = {
         },
     },
     "fantasy sports club": {
-        pos: { x: null, y: null },
         connections: {
             baseball: 2,
             basketball: 1,
@@ -3870,7 +3750,6 @@ const groupData = {
         },
     },
     "pltw project lead the way": {
-        pos: { x: null, y: null },
         connections: {
             "ai club": 1,
             arl: 1,
@@ -3912,7 +3791,6 @@ const groupData = {
         },
     },
     "centennial competitive coding": {
-        pos: { x: null, y: null },
         connections: {
             "ai club": 1,
             badminton: 1,
@@ -3941,7 +3819,6 @@ const groupData = {
         },
     },
     interact: {
-        pos: { x: null, y: null },
         connections: {
             "american cancer society": 1,
             "american sign language": 2,
@@ -3975,7 +3852,6 @@ const groupData = {
         },
     },
     "competitive coding club": {
-        pos: { x: null, y: null },
         connections: {
             "centennial competitive coding": 3,
             "humanities program": 1,
@@ -4010,7 +3886,6 @@ const groupData = {
         },
     },
     aquila: {
-        pos: { x: null, y: null },
         connections: {
             paws: 1,
             theater: 2,
@@ -4043,7 +3918,6 @@ const groupData = {
         },
     },
     "habitat for humanity": {
-        pos: { x: null, y: null },
         connections: {
             band: 2,
             "class board": 1,
@@ -4065,7 +3939,6 @@ const groupData = {
         },
     },
     "marching band": {
-        pos: { x: null, y: null },
         connections: {
             "american cancer society": 1,
             "american sign language": 1,
@@ -4138,7 +4011,6 @@ const groupData = {
         },
     },
     "national art honor society": {
-        pos: { x: null, y: null },
         connections: {
             "intern mentor": 3,
             "lefa leaders of economics and finance in america": 1,
@@ -4181,7 +4053,6 @@ const groupData = {
         },
     },
     "graphics club": {
-        pos: { x: null, y: null },
         connections: {
             "writing club": 1,
             "ai club": 1,
@@ -4206,7 +4077,6 @@ const groupData = {
         },
     },
     "saga sexuality and gender alliance": {
-        pos: { x: null, y: null },
         connections: {
             "active minds": 1,
             "color guard": 1,
@@ -4239,7 +4109,6 @@ const groupData = {
         },
     },
     "clothing collective": {
-        pos: { x: null, y: null },
         connections: {
             badminton: 1,
             "humanities program": 1,
@@ -4257,7 +4126,6 @@ const groupData = {
         },
     },
     "c# accapella": {
-        pos: { x: null, y: null },
         connections: {
             chorus: 3,
             "color guard": 1,
@@ -4281,7 +4149,6 @@ const groupData = {
         },
     },
     cyberpatriots: {
-        pos: { x: null, y: null },
         connections: {
             "ai club": 4,
             badminton: 1,
@@ -4323,7 +4190,6 @@ const groupData = {
         },
     },
     soccer: {
-        pos: { x: null, y: null },
         connections: {
             band: 3,
             "humanities program": 3,
@@ -4351,7 +4217,6 @@ const groupData = {
         },
     },
     "indian dance club": {
-        pos: { x: null, y: null },
         connections: {
             dance: 1,
             "drill team": 1,
@@ -4388,7 +4253,6 @@ const groupData = {
         },
     },
     "indoor track": {
-        pos: { x: null, y: null },
         connections: {
             "black student union": 1,
             dance: 1,
@@ -4427,7 +4291,6 @@ const groupData = {
         },
     },
     "drill team": {
-        pos: { x: null, y: null },
         connections: {
             dance: 4,
             "girl up foundation": 1,
@@ -4453,7 +4316,6 @@ const groupData = {
         },
     },
     heartwise: {
-        pos: { x: null, y: null },
         connections: {
             "creactive youth": 2,
             "fbla future business leaders of america": 1,
@@ -4469,7 +4331,6 @@ const groupData = {
         },
     },
     football: {
-        pos: { x: null, y: null },
         connections: {
             baseball: 2,
             "best buddies": 1,
@@ -4491,7 +4352,6 @@ const groupData = {
         },
     },
     "national honor society": {
-        pos: { x: null, y: null },
         connections: {
             "ai club": 3,
             badminton: 3,
@@ -4591,7 +4451,6 @@ const groupData = {
         },
     },
     "mindfulness club": {
-        pos: { x: null, y: null },
         connections: {
             "cross country": 1,
             "indoor track": 1,
@@ -4602,7 +4461,6 @@ const groupData = {
         },
     },
     "astronomy & rocket club": {
-        pos: { x: null, y: null },
         connections: {
             "writing club": 1,
             "ai club": 1,
@@ -4625,11 +4483,9 @@ const groupData = {
         },
     },
     "writing club": {
-        pos: { x: null, y: null },
         connections: { "astronomy & rocket club": 1, "graphics club": 1 },
     },
     horizon: {
-        pos: { x: null, y: null },
         connections: {
             baseball: 1,
             basketball: 1,
@@ -4652,7 +4508,6 @@ const groupData = {
         },
     },
     "ai club": {
-        pos: { x: null, y: null },
         connections: {
             badminton: 2,
             "centennial competitive coding": 1,
@@ -4709,7 +4564,6 @@ const groupData = {
         },
     },
     gsa: {
-        pos: { x: null, y: null },
         connections: {
             "german club": 1,
             "saga sexuality and gender alliance": 1,
@@ -4721,7 +4575,6 @@ const groupData = {
         },
     },
     "math journal": {
-        pos: { x: null, y: null },
         connections: {
             "humanities program": 2,
             "music mentors": 1,
@@ -4751,7 +4604,6 @@ const groupData = {
         },
     },
     wrestling: {
-        pos: { x: null, y: null },
         connections: {
             "class board": 1,
             orchestra: 1,
@@ -4766,7 +4618,6 @@ const groupData = {
         },
     },
     "intern mentor": {
-        pos: { x: null, y: null },
         connections: {
             "humanities program": 7,
             tennis: 2,
@@ -4835,7 +4686,6 @@ const groupData = {
         },
     },
     "music outreach program": {
-        pos: { x: null, y: null },
         connections: {
             "cross country": 1,
             "ftc robotics": 1,
@@ -4872,7 +4722,6 @@ const groupData = {
         },
     },
     fencing: {
-        pos: { x: null, y: null },
         connections: {
             "french club": 1,
             "it's academic": 1,
@@ -4888,7 +4737,6 @@ const groupData = {
         },
     },
     "gaming club": {
-        pos: { x: null, y: null },
         connections: {
             "ai club": 1,
             "anime club": 1,
@@ -4912,7 +4760,6 @@ const groupData = {
 
 const studentData = {
     V129: {
-        pos: { x: null, y: null },
         connections: {
             V127: 1,
             V22: 1,
@@ -4947,7 +4794,6 @@ const studentData = {
         },
     },
     V128: {
-        pos: { x: null, y: null },
         connections: {
             V30: 1,
             V122: 1,
@@ -4959,7 +4805,6 @@ const studentData = {
         },
     },
     V127: {
-        pos: { x: null, y: null },
         connections: {
             V22: 1,
             V25: 1,
@@ -5042,7 +4887,6 @@ const studentData = {
         },
     },
     V21: {
-        pos: { x: null, y: null },
         connections: {
             V15: 2,
             V3: 1,
@@ -5064,7 +4908,6 @@ const studentData = {
         },
     },
     V20: {
-        pos: { x: null, y: null },
         connections: {
             V7: 3,
             V9: 1,
@@ -5139,7 +4982,6 @@ const studentData = {
         },
     },
     V23: {
-        pos: { x: null, y: null },
         connections: {
             V7: 2,
             V9: 1,
@@ -5186,7 +5028,6 @@ const studentData = {
         },
     },
     V22: {
-        pos: { x: null, y: null },
         connections: {
             V7: 1,
             V9: 1,
@@ -5249,7 +5090,6 @@ const studentData = {
         },
     },
     V25: {
-        pos: { x: null, y: null },
         connections: {
             V20: 1,
             V22: 2,
@@ -5309,7 +5149,6 @@ const studentData = {
         },
     },
     V137: {
-        pos: { x: null, y: null },
         connections: {
             V127: 2,
             V22: 1,
@@ -5357,7 +5196,6 @@ const studentData = {
         },
     },
     V24: {
-        pos: { x: null, y: null },
         connections: {
             V21: 1,
             V20: 2,
@@ -5441,7 +5279,6 @@ const studentData = {
         },
     },
     V136: {
-        pos: { x: null, y: null },
         connections: {
             V20: 1,
             V31: 1,
@@ -5461,7 +5298,6 @@ const studentData = {
         },
     },
     V27: {
-        pos: { x: null, y: null },
         connections: {
             V20: 1,
             V23: 1,
@@ -5542,7 +5378,6 @@ const studentData = {
         },
     },
     V135: {
-        pos: { x: null, y: null },
         connections: {
             V129: 1,
             V127: 1,
@@ -5608,7 +5443,6 @@ const studentData = {
         },
     },
     V26: {
-        pos: { x: null, y: null },
         connections: {
             V0: 3,
             V4: 2,
@@ -5635,7 +5469,6 @@ const studentData = {
         },
     },
     V134: {
-        pos: { x: null, y: null },
         connections: {
             V29: 1,
             V133: 1,
@@ -5676,7 +5509,6 @@ const studentData = {
         },
     },
     V29: {
-        pos: { x: null, y: null },
         connections: {
             V20: 1,
             V23: 1,
@@ -5774,7 +5606,6 @@ const studentData = {
         },
     },
     V133: {
-        pos: { x: null, y: null },
         connections: {
             V119: 1,
             V118: 1,
@@ -5789,7 +5620,6 @@ const studentData = {
         },
     },
     V28: {
-        pos: { x: null, y: null },
         connections: {
             V20: 1,
             V23: 1,
@@ -5856,7 +5686,6 @@ const studentData = {
         },
     },
     V132: {
-        pos: { x: null, y: null },
         connections: {
             V128: 1,
             V21: 1,
@@ -5878,7 +5707,6 @@ const studentData = {
         },
     },
     V131: {
-        pos: { x: null, y: null },
         connections: {
             V128: 1,
             V21: 1,
@@ -5900,7 +5728,6 @@ const studentData = {
         },
     },
     V130: {
-        pos: { x: null, y: null },
         connections: {
             V129: 1,
             V30: 1,
@@ -5912,7 +5739,6 @@ const studentData = {
         },
     },
     V119: {
-        pos: { x: null, y: null },
         connections: {
             V22: 1,
             V24: 2,
@@ -5974,7 +5800,6 @@ const studentData = {
         },
     },
     V118: {
-        pos: { x: null, y: null },
         connections: {
             V22: 1,
             V24: 1,
@@ -6040,7 +5865,6 @@ const studentData = {
         },
     },
     V117: {
-        pos: { x: null, y: null },
         connections: {
             V20: 1,
             V24: 1,
@@ -6138,7 +5962,6 @@ const studentData = {
         },
     },
     V116: {
-        pos: { x: null, y: null },
         connections: {
             V20: 2,
             V23: 1,
@@ -6208,7 +6031,6 @@ const studentData = {
         },
     },
     V30: {
-        pos: { x: null, y: null },
         connections: {
             V20: 1,
             V23: 1,
@@ -6251,7 +6073,6 @@ const studentData = {
         },
     },
     V32: {
-        pos: { x: null, y: null },
         connections: {
             V27: 1,
             V28: 1,
@@ -6274,7 +6095,6 @@ const studentData = {
         },
     },
     V31: {
-        pos: { x: null, y: null },
         connections: {
             V20: 1,
             V25: 1,
@@ -6312,7 +6132,6 @@ const studentData = {
         },
     },
     V34: {
-        pos: { x: null, y: null },
         connections: {
             V20: 5,
             V23: 2,
@@ -6411,7 +6230,6 @@ const studentData = {
         },
     },
     V33: {
-        pos: { x: null, y: null },
         connections: {
             V20: 1,
             V22: 1,
@@ -6440,7 +6258,6 @@ const studentData = {
         },
     },
     V36: {
-        pos: { x: null, y: null },
         connections: {
             V22: 2,
             V25: 4,
@@ -6518,7 +6335,6 @@ const studentData = {
         },
     },
     V126: {
-        pos: { x: null, y: null },
         connections: {
             V24: 1,
             V29: 1,
@@ -6568,7 +6384,6 @@ const studentData = {
         },
     },
     V35: {
-        pos: { x: null, y: null },
         connections: {
             V20: 1,
             V23: 1,
@@ -6625,12 +6440,8 @@ const studentData = {
             V155: 1,
         },
     },
-    V125: {
-        pos: { x: null, y: null },
-        connections: { V54: 1, V62: 1, V5: 1, V74: 1, V94: 1, V127: 1 },
-    },
+    V125: { connections: { V54: 1, V62: 1, V5: 1, V74: 1, V94: 1, V127: 1 } },
     V38: {
-        pos: { x: null, y: null },
         connections: {
             V20: 2,
             V22: 1,
@@ -6681,11 +6492,9 @@ const studentData = {
         },
     },
     V124: {
-        pos: { x: null, y: null },
         connections: { V24: 1, V118: 1, V121: 1, V58: 1, V62: 1, V134: 1 },
     },
     V37: {
-        pos: { x: null, y: null },
         connections: {
             V22: 2,
             V25: 3,
@@ -6747,7 +6556,6 @@ const studentData = {
         },
     },
     V123: {
-        pos: { x: null, y: null },
         connections: {
             V22: 2,
             V24: 2,
@@ -6795,7 +6603,6 @@ const studentData = {
         },
     },
     V122: {
-        pos: { x: null, y: null },
         connections: {
             V119: 1,
             V118: 1,
@@ -6814,7 +6621,6 @@ const studentData = {
         },
     },
     V39: {
-        pos: { x: null, y: null },
         connections: {
             V21: 1,
             V24: 1,
@@ -6828,7 +6634,6 @@ const studentData = {
         },
     },
     V121: {
-        pos: { x: null, y: null },
         connections: {
             V24: 3,
             V29: 1,
@@ -6905,7 +6710,6 @@ const studentData = {
         },
     },
     V120: {
-        pos: { x: null, y: null },
         connections: {
             V20: 3,
             V23: 1,
@@ -6979,7 +6783,6 @@ const studentData = {
         },
     },
     V149: {
-        pos: { x: null, y: null },
         connections: {
             V127: 1,
             V24: 1,
@@ -7044,7 +6847,6 @@ const studentData = {
         },
     },
     V151: {
-        pos: { x: null, y: null },
         connections: {
             V127: 2,
             V20: 1,
@@ -7098,7 +6900,6 @@ const studentData = {
         },
     },
     V150: {
-        pos: { x: null, y: null },
         connections: {
             V127: 2,
             V24: 1,
@@ -7170,7 +6971,6 @@ const studentData = {
         },
     },
     V41: {
-        pos: { x: null, y: null },
         connections: {
             V21: 1,
             V25: 1,
@@ -7212,12 +7012,8 @@ const studentData = {
             V154: 1,
         },
     },
-    V40: {
-        pos: { x: null, y: null },
-        connections: { V77: 1, V86: 1, V136: 1, V143: 1 },
-    },
+    V40: { connections: { V77: 1, V86: 1, V136: 1, V143: 1 } },
     V43: {
-        pos: { x: null, y: null },
         connections: {
             V41: 1,
             V21: 1,
@@ -7282,7 +7078,6 @@ const studentData = {
         },
     },
     V42: {
-        pos: { x: null, y: null },
         connections: {
             V41: 1,
             V22: 2,
@@ -7346,7 +7141,6 @@ const studentData = {
         },
     },
     V45: {
-        pos: { x: null, y: null },
         connections: {
             V41: 1,
             V43: 1,
@@ -7436,7 +7230,6 @@ const studentData = {
         },
     },
     V44: {
-        pos: { x: null, y: null },
         connections: {
             V43: 1,
             V20: 2,
@@ -7502,7 +7295,6 @@ const studentData = {
         },
     },
     V47: {
-        pos: { x: null, y: null },
         connections: {
             V22: 1,
             V24: 1,
@@ -7524,7 +7316,6 @@ const studentData = {
         },
     },
     V46: {
-        pos: { x: null, y: null },
         connections: {
             V43: 1,
             V20: 5,
@@ -7626,7 +7417,6 @@ const studentData = {
         },
     },
     V49: {
-        pos: { x: null, y: null },
         connections: {
             V0: 1,
             V27: 1,
@@ -7666,7 +7456,6 @@ const studentData = {
         },
     },
     V48: {
-        pos: { x: null, y: null },
         connections: {
             V20: 1,
             V23: 1,
@@ -7734,7 +7523,6 @@ const studentData = {
         },
     },
     V155: {
-        pos: { x: null, y: null },
         connections: {
             V127: 1,
             V20: 1,
@@ -7798,7 +7586,6 @@ const studentData = {
         },
     },
     V154: {
-        pos: { x: null, y: null },
         connections: {
             V129: 2,
             V127: 3,
@@ -7873,7 +7660,6 @@ const studentData = {
         },
     },
     V153: {
-        pos: { x: null, y: null },
         connections: {
             V24: 2,
             V135: 1,
@@ -7929,7 +7715,6 @@ const studentData = {
         },
     },
     V152: {
-        pos: { x: null, y: null },
         connections: {
             V127: 1,
             V22: 1,
@@ -7959,7 +7744,6 @@ const studentData = {
         },
     },
     V139: {
-        pos: { x: null, y: null },
         connections: {
             V127: 1,
             V24: 2,
@@ -8027,7 +7811,6 @@ const studentData = {
         },
     },
     V138: {
-        pos: { x: null, y: null },
         connections: {
             V117: 1,
             V30: 1,
@@ -8045,7 +7828,6 @@ const studentData = {
         },
     },
     V50: {
-        pos: { x: null, y: null },
         connections: {
             V20: 3,
             V2: 1,
@@ -8070,7 +7852,6 @@ const studentData = {
         },
     },
     V140: {
-        pos: { x: null, y: null },
         connections: {
             V127: 1,
             V20: 1,
@@ -8107,7 +7888,6 @@ const studentData = {
         },
     },
     V52: {
-        pos: { x: null, y: null },
         connections: {
             V20: 2,
             V23: 1,
@@ -8207,7 +7987,6 @@ const studentData = {
         },
     },
     V51: {
-        pos: { x: null, y: null },
         connections: {
             V20: 2,
             V23: 2,
@@ -8270,7 +8049,6 @@ const studentData = {
         },
     },
     V54: {
-        pos: { x: null, y: null },
         connections: {
             V21: 1,
             V22: 2,
@@ -8336,7 +8114,6 @@ const studentData = {
         },
     },
     V53: {
-        pos: { x: null, y: null },
         connections: {
             V28: 1,
             V30: 1,
@@ -8352,7 +8129,6 @@ const studentData = {
         },
     },
     V56: {
-        pos: { x: null, y: null },
         connections: {
             V20: 1,
             V22: 1,
@@ -8441,7 +8217,6 @@ const studentData = {
         },
     },
     V55: {
-        pos: { x: null, y: null },
         connections: {
             V30: 1,
             V32: 1,
@@ -8467,7 +8242,6 @@ const studentData = {
         },
     },
     V58: {
-        pos: { x: null, y: null },
         connections: {
             V31: 1,
             V112: 1,
@@ -8481,7 +8255,6 @@ const studentData = {
         },
     },
     V148: {
-        pos: { x: null, y: null },
         connections: {
             V128: 1,
             V134: 3,
@@ -8523,7 +8296,6 @@ const studentData = {
         },
     },
     V57: {
-        pos: { x: null, y: null },
         connections: {
             V3: 1,
             V32: 1,
@@ -8551,7 +8323,6 @@ const studentData = {
         },
     },
     V147: {
-        pos: { x: null, y: null },
         connections: {
             V127: 2,
             V24: 2,
@@ -8618,7 +8389,6 @@ const studentData = {
         },
     },
     V146: {
-        pos: { x: null, y: null },
         connections: {
             V129: 2,
             V127: 2,
@@ -8688,7 +8458,6 @@ const studentData = {
         },
     },
     V59: {
-        pos: { x: null, y: null },
         connections: {
             V20: 1,
             V23: 1,
@@ -8738,7 +8507,6 @@ const studentData = {
         },
     },
     V145: {
-        pos: { x: null, y: null },
         connections: {
             V129: 2,
             V127: 2,
@@ -8812,7 +8580,6 @@ const studentData = {
         },
     },
     V144: {
-        pos: { x: null, y: null },
         connections: {
             V127: 1,
             V20: 3,
@@ -8884,7 +8651,6 @@ const studentData = {
         },
     },
     V143: {
-        pos: { x: null, y: null },
         connections: {
             V20: 1,
             V25: 1,
@@ -8938,7 +8704,6 @@ const studentData = {
         },
     },
     V142: {
-        pos: { x: null, y: null },
         connections: {
             V127: 1,
             V137: 1,
@@ -8969,7 +8734,6 @@ const studentData = {
         },
     },
     V141: {
-        pos: { x: null, y: null },
         connections: {
             V127: 1,
             V137: 1,
@@ -8984,7 +8748,6 @@ const studentData = {
         },
     },
     V61: {
-        pos: { x: null, y: null },
         connections: {
             V20: 1,
             V25: 1,
@@ -9060,7 +8823,6 @@ const studentData = {
         },
     },
     V60: {
-        pos: { x: null, y: null },
         connections: {
             V0: 3,
             V1: 1,
@@ -9100,7 +8862,6 @@ const studentData = {
         },
     },
     V63: {
-        pos: { x: null, y: null },
         connections: {
             V22: 1,
             V27: 1,
@@ -9135,7 +8896,6 @@ const studentData = {
         },
     },
     V62: {
-        pos: { x: null, y: null },
         connections: {
             V22: 1,
             V25: 2,
@@ -9188,7 +8948,6 @@ const studentData = {
         },
     },
     V65: {
-        pos: { x: null, y: null },
         connections: {
             V60: 1,
             V20: 2,
@@ -9218,7 +8977,6 @@ const studentData = {
         },
     },
     V64: {
-        pos: { x: null, y: null },
         connections: {
             V61: 2,
             V60: 4,
@@ -9301,7 +9059,6 @@ const studentData = {
         },
     },
     V67: {
-        pos: { x: null, y: null },
         connections: {
             V61: 4,
             V60: 2,
@@ -9402,7 +9159,6 @@ const studentData = {
         },
     },
     V66: {
-        pos: { x: null, y: null },
         connections: {
             V61: 5,
             V63: 1,
@@ -9484,7 +9240,6 @@ const studentData = {
         },
     },
     V69: {
-        pos: { x: null, y: null },
         connections: {
             V61: 2,
             V20: 1,
@@ -9525,7 +9280,6 @@ const studentData = {
         },
     },
     V68: {
-        pos: { x: null, y: null },
         connections: {
             V61: 2,
             V60: 1,
@@ -9582,7 +9336,6 @@ const studentData = {
         },
     },
     V0: {
-        pos: { x: null, y: null },
         connections: {
             V2: 1,
             V4: 2,
@@ -9662,7 +9415,6 @@ const studentData = {
         },
     },
     V1: {
-        pos: { x: null, y: null },
         connections: {
             V6: 1,
             V7: 1,
@@ -9713,7 +9465,6 @@ const studentData = {
         },
     },
     V2: {
-        pos: { x: null, y: null },
         connections: {
             V0: 1,
             V3: 1,
@@ -9782,7 +9533,6 @@ const studentData = {
         },
     },
     V3: {
-        pos: { x: null, y: null },
         connections: {
             V2: 1,
             V7: 1,
@@ -9839,7 +9589,6 @@ const studentData = {
         },
     },
     V4: {
-        pos: { x: null, y: null },
         connections: {
             V0: 2,
             V8: 1,
@@ -9865,7 +9614,6 @@ const studentData = {
         },
     },
     V5: {
-        pos: { x: null, y: null },
         connections: {
             V2: 1,
             V25: 1,
@@ -9884,7 +9632,6 @@ const studentData = {
         },
     },
     V6: {
-        pos: { x: null, y: null },
         connections: {
             V1: 1,
             V10: 1,
@@ -9926,7 +9673,6 @@ const studentData = {
         },
     },
     V7: {
-        pos: { x: null, y: null },
         connections: {
             V0: 2,
             V1: 1,
@@ -10024,7 +9770,6 @@ const studentData = {
         },
     },
     V8: {
-        pos: { x: null, y: null },
         connections: {
             V7: 2,
             V0: 3,
@@ -10089,7 +9834,6 @@ const studentData = {
         },
     },
     V9: {
-        pos: { x: null, y: null },
         connections: {
             V7: 3,
             V8: 3,
@@ -10171,7 +9915,6 @@ const studentData = {
         },
     },
     V70: {
-        pos: { x: null, y: null },
         connections: {
             V20: 1,
             V23: 1,
@@ -10221,7 +9964,6 @@ const studentData = {
         },
     },
     V72: {
-        pos: { x: null, y: null },
         connections: {
             V62: 1,
             V20: 1,
@@ -10285,7 +10027,6 @@ const studentData = {
         },
     },
     V71: {
-        pos: { x: null, y: null },
         connections: {
             V60: 2,
             V65: 1,
@@ -10317,7 +10058,6 @@ const studentData = {
         },
     },
     V74: {
-        pos: { x: null, y: null },
         connections: {
             V62: 1,
             V5: 1,
@@ -10334,7 +10074,6 @@ const studentData = {
         },
     },
     V73: {
-        pos: { x: null, y: null },
         connections: {
             V22: 1,
             V24: 1,
@@ -10362,7 +10101,6 @@ const studentData = {
         },
     },
     V76: {
-        pos: { x: null, y: null },
         connections: {
             V62: 2,
             V25: 1,
@@ -10403,7 +10141,6 @@ const studentData = {
         },
     },
     V75: {
-        pos: { x: null, y: null },
         connections: {
             V61: 1,
             V22: 1,
@@ -10449,7 +10186,6 @@ const studentData = {
         },
     },
     V78: {
-        pos: { x: null, y: null },
         connections: {
             V21: 2,
             V67: 1,
@@ -10485,12 +10221,8 @@ const studentData = {
             V141: 1,
         },
     },
-    V77: {
-        pos: { x: null, y: null },
-        connections: { V40: 1, V86: 1, V88: 1, V110: 1 },
-    },
+    V77: { connections: { V40: 1, V86: 1, V88: 1, V110: 1 } },
     V79: {
-        pos: { x: null, y: null },
         connections: {
             V22: 2,
             V24: 1,
@@ -10530,7 +10262,6 @@ const studentData = {
         },
     },
     V109: {
-        pos: { x: null, y: null },
         connections: {
             V20: 1,
             V23: 1,
@@ -10616,7 +10347,6 @@ const studentData = {
         },
     },
     V108: {
-        pos: { x: null, y: null },
         connections: {
             V20: 2,
             V23: 3,
@@ -10663,7 +10393,6 @@ const studentData = {
         },
     },
     V107: {
-        pos: { x: null, y: null },
         connections: {
             V20: 1,
             V23: 1,
@@ -10712,12 +10441,8 @@ const studentData = {
             V154: 1,
         },
     },
-    V106: {
-        pos: { x: null, y: null },
-        connections: { V5: 1, V113: 1, V122: 1, V132: 1, V148: 1 },
-    },
+    V106: { connections: { V5: 1, V113: 1, V122: 1, V132: 1, V148: 1 } },
     V105: {
-        pos: { x: null, y: null },
         connections: {
             V24: 1,
             V29: 1,
@@ -10774,7 +10499,6 @@ const studentData = {
         },
     },
     V81: {
-        pos: { x: null, y: null },
         connections: {
             V61: 8,
             V63: 1,
@@ -10862,7 +10586,6 @@ const studentData = {
         },
     },
     V80: {
-        pos: { x: null, y: null },
         connections: {
             V20: 1,
             V64: 1,
@@ -10896,7 +10619,6 @@ const studentData = {
         },
     },
     V83: {
-        pos: { x: null, y: null },
         connections: {
             V61: 2,
             V60: 1,
@@ -10961,7 +10683,6 @@ const studentData = {
         },
     },
     V82: {
-        pos: { x: null, y: null },
         connections: {
             V61: 2,
             V63: 1,
@@ -11029,7 +10750,6 @@ const studentData = {
         },
     },
     V85: {
-        pos: { x: null, y: null },
         connections: {
             V61: 1,
             V62: 2,
@@ -11080,7 +10800,6 @@ const studentData = {
         },
     },
     V84: {
-        pos: { x: null, y: null },
         connections: {
             V65: 1,
             V20: 1,
@@ -11093,7 +10812,6 @@ const studentData = {
         },
     },
     V87: {
-        pos: { x: null, y: null },
         connections: {
             V20: 3,
             V2: 1,
@@ -11118,7 +10836,6 @@ const studentData = {
         },
     },
     V86: {
-        pos: { x: null, y: null },
         connections: {
             V61: 1,
             V60: 3,
@@ -11201,7 +10918,6 @@ const studentData = {
         },
     },
     V89: {
-        pos: { x: null, y: null },
         connections: {
             V22: 1,
             V24: 1,
@@ -11231,7 +10947,6 @@ const studentData = {
         },
     },
     V88: {
-        pos: { x: null, y: null },
         connections: {
             V21: 1,
             V78: 1,
@@ -11254,7 +10969,6 @@ const studentData = {
         },
     },
     V115: {
-        pos: { x: null, y: null },
         connections: {
             V21: 1,
             V20: 1,
@@ -11281,7 +10995,6 @@ const studentData = {
         },
     },
     V114: {
-        pos: { x: null, y: null },
         connections: {
             V20: 1,
             V23: 1,
@@ -11357,7 +11070,6 @@ const studentData = {
         },
     },
     V113: {
-        pos: { x: null, y: null },
         connections: {
             V21: 1,
             V22: 1,
@@ -11388,7 +11100,6 @@ const studentData = {
         },
     },
     V112: {
-        pos: { x: null, y: null },
         connections: {
             V20: 1,
             V23: 1,
@@ -11459,7 +11170,6 @@ const studentData = {
         },
     },
     V111: {
-        pos: { x: null, y: null },
         connections: {
             V20: 3,
             V31: 1,
@@ -11484,7 +11194,6 @@ const studentData = {
         },
     },
     V110: {
-        pos: { x: null, y: null },
         connections: {
             V27: 2,
             V29: 2,
@@ -11512,7 +11221,6 @@ const studentData = {
         },
     },
     V90: {
-        pos: { x: null, y: null },
         connections: {
             V61: 2,
             V60: 1,
@@ -11589,7 +11297,6 @@ const studentData = {
         },
     },
     V92: {
-        pos: { x: null, y: null },
         connections: {
             V61: 1,
             V62: 1,
@@ -11627,7 +11334,6 @@ const studentData = {
         },
     },
     V91: {
-        pos: { x: null, y: null },
         connections: {
             V20: 1,
             V64: 2,
@@ -11687,7 +11393,6 @@ const studentData = {
         },
     },
     V94: {
-        pos: { x: null, y: null },
         connections: {
             V83: 1,
             V84: 1,
@@ -11701,7 +11406,6 @@ const studentData = {
         },
     },
     V93: {
-        pos: { x: null, y: null },
         connections: {
             V21: 1,
             V74: 1,
@@ -11723,7 +11427,6 @@ const studentData = {
         },
     },
     V96: {
-        pos: { x: null, y: null },
         connections: {
             V20: 2,
             V23: 1,
@@ -11799,7 +11502,6 @@ const studentData = {
         },
     },
     V95: {
-        pos: { x: null, y: null },
         connections: {
             V61: 2,
             V62: 1,
@@ -11897,7 +11599,6 @@ const studentData = {
         },
     },
     V10: {
-        pos: { x: null, y: null },
         connections: {
             V6: 1,
             V7: 1,
@@ -11946,7 +11647,6 @@ const studentData = {
         },
     },
     V98: {
-        pos: { x: null, y: null },
         connections: {
             V25: 1,
             V27: 1,
@@ -11984,7 +11684,6 @@ const studentData = {
         },
     },
     V97: {
-        pos: { x: null, y: null },
         connections: {
             V21: 1,
             V29: 1,
@@ -12052,7 +11751,6 @@ const studentData = {
         },
     },
     V12: {
-        pos: { x: null, y: null },
         connections: {
             V7: 1,
             V8: 2,
@@ -12103,7 +11801,6 @@ const studentData = {
         },
     },
     V11: {
-        pos: { x: null, y: null },
         connections: {
             V7: 6,
             V8: 2,
@@ -12198,7 +11895,6 @@ const studentData = {
         },
     },
     V99: {
-        pos: { x: null, y: null },
         connections: {
             V20: 1,
             V23: 1,
@@ -12244,7 +11940,6 @@ const studentData = {
         },
     },
     V14: {
-        pos: { x: null, y: null },
         connections: {
             V7: 1,
             V9: 1,
@@ -12294,7 +11989,6 @@ const studentData = {
         },
     },
     V104: {
-        pos: { x: null, y: null },
         connections: {
             V20: 3,
             V29: 2,
@@ -12360,7 +12054,6 @@ const studentData = {
         },
     },
     V13: {
-        pos: { x: null, y: null },
         connections: {
             V7: 3,
             V8: 1,
@@ -12437,7 +12130,6 @@ const studentData = {
         },
     },
     V103: {
-        pos: { x: null, y: null },
         connections: {
             V20: 2,
             V25: 1,
@@ -12461,7 +12153,6 @@ const studentData = {
         },
     },
     V16: {
-        pos: { x: null, y: null },
         connections: {
             V6: 2,
             V36: 1,
@@ -12480,7 +12171,6 @@ const studentData = {
         },
     },
     V102: {
-        pos: { x: null, y: null },
         connections: {
             V32: 1,
             V36: 1,
@@ -12509,7 +12199,6 @@ const studentData = {
         },
     },
     V15: {
-        pos: { x: null, y: null },
         connections: {
             V7: 1,
             V8: 1,
@@ -12572,7 +12261,6 @@ const studentData = {
         },
     },
     V101: {
-        pos: { x: null, y: null },
         connections: {
             V25: 2,
             V24: 1,
@@ -12611,7 +12299,6 @@ const studentData = {
         },
     },
     V18: {
-        pos: { x: null, y: null },
         connections: {
             V17: 1,
             V88: 1,
@@ -12623,7 +12310,6 @@ const studentData = {
         },
     },
     V100: {
-        pos: { x: null, y: null },
         connections: {
             V20: 1,
             V23: 1,
@@ -12653,7 +12339,6 @@ const studentData = {
         },
     },
     V17: {
-        pos: { x: null, y: null },
         connections: {
             V15: 3,
             V18: 1,
@@ -12684,7 +12369,6 @@ const studentData = {
         },
     },
     V19: {
-        pos: { x: null, y: null },
         connections: {
             V15: 2,
             V17: 2,
