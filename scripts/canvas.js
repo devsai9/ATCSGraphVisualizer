@@ -9,11 +9,12 @@ const drawPositions = [];
 const VERTEX_RADIUS = 20;
 
 export function resizeCanvas() {
+    canvas.width = 0;
+    canvas.height = 0;
+
     const rect = canvasWrapper.getBoundingClientRect();
-    // canvas.width = window.innerWidth;
-    // canvas.height = (window.innerHeight - 210);
-    canvas.width = rect.width - 10;
-    canvas.height = rect.height - 10;
+    canvas.width = rect.width;
+    canvas.height = rect.height;
 }
 
 export function clearCanvas() {
