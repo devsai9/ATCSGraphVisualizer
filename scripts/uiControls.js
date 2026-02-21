@@ -168,10 +168,7 @@ export function updateTooltipText(str) {
     tooltip.children[0].innerText = str;
 }
 
-export function updateTooltipPos(x, y, centerX, lowerY) {
-    if (centerX == null) centerX = false;
-    if (lowerY == null) lowerY = false;
-
+export function updateTooltipPos(x, y, centerX = false, lowerY = false) {
     tooltip.style.display = "block";
     tooltip.style.left = x + "px";
     tooltip.style.top = y + "px";

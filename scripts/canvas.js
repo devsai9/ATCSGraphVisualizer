@@ -21,10 +21,8 @@ export function clearCanvas() {
     hideTooltip();
 }
 
-export function drawGraph(data, redoVertexPositions) {
+export function drawGraph(data, redoVertexPositions = false) {
     if (window.innerWidth < 900) return;
-    
-    if (redoVertexPositions == null) redoVertexPositions = false;
     
     resizeCanvas();
     clearCanvas();
@@ -105,25 +103,24 @@ export function drawGraph(data, redoVertexPositions) {
 }
 
 let drawPathBusy = false;
-export function drawPath(data, vertices, animateDelay, onComplete) {
+export function drawPath(data, vertices, animateDelay = 0, onComplete = () => {}) {
     // if (drawPositions.length == 0) return;
     if (drawPathBusy) return;
     if (vertices == null || vertices.length == 0) {
-        if (onComplete != null && typeof onComplete == "function") onComplete();
+        onComplete();
         return;
     }
 
     // Preliminary check
     for (const v of vertices) {
-        if (data[v] == null || data[v].pos.x == null || data[v].pos.y == null) {
-            alert("Please draw the graph in this mode first");
-            if (onComplete != null && typeof onComplete == "function") onComplete();
+        if (data[v] == null || data[v]["pos"] == null || data[v].pos.x == null || data[v].pos.y == null) {
+            // alert("Please draw the graph in this mode first");
+            onComplete();
             return;
         }
     }
 
     drawPathBusy = true;
-    if (animateDelay == null) animateDelay = 0;
 
     function drawEdge(idx) {
         const prevPrev = idx >= 2 ? data[vertices[idx - 2]].pos : null;
@@ -157,7 +154,7 @@ export function drawPath(data, vertices, animateDelay, onComplete) {
             ctx.lineTo(curr.pos.x, curr.pos.y);
             ctx.stroke();
 
-            if (onComplete != null && typeof onComplete == "function") onComplete();
+            onComplete();
             hideTooltip();
             drawPathBusy = false;
         }
@@ -165,11 +162,11 @@ export function drawPath(data, vertices, animateDelay, onComplete) {
 
     ctx.lineWidth = 2;
     for (let i = 1; i < vertices.length; i++) {
-        setTimeout(() => { drawEdge(i) }, (i - 1) * animateDelay);
+        setTimeout(() => drawEdge(i), i > 1 ? (i - 1) * animateDelay : Math.min(animateDelay, 150));
     }
 }
 
-export function connectTwoNodes(data, start, target, onComplete) {
+export function connectTwoNodes(data, start, target, onComplete = () => {}) {
     let fail = false;
     if (!config.graphEnabled) fail = true;
     if (data == null || start == null || target == null) fail = true;
@@ -180,7 +177,7 @@ export function connectTwoNodes(data, start, target, onComplete) {
     if (!keys.includes(start) || !keys.includes(target)) fail = true;
 
     if (fail) {
-        if (onComplete != null && typeof onComplete == "function") onComplete();
+        onComplete();
         return;
     }
 
@@ -202,7 +199,7 @@ export function connectTwoNodes(data, start, target, onComplete) {
     }
 
     if (!visited.has(target)) {
-        if (onComplete != null && typeof onComplete == "function") onComplete();
+        onComplete();
         return;
     }
 
