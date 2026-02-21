@@ -82,6 +82,8 @@ export function resetZoom() {
 function onMouseDown(event) {
     if (!config.graphEnabled || drawPathBusy) return;
 
+    if (event.button != 0) return; // only let left clicks through
+
     isDragging = true;
     hasMoved = false;
 
