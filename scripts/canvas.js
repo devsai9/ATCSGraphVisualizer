@@ -1,5 +1,5 @@
 import { data } from "./data.js";
-import { config, updateTooltipText, updateTooltipPos, updateTooltipBorderColor, hideTooltip, GRAPH_ALGOS } from "./uiControls.js";
+import { config, updateTooltipText, updateTooltipPos, updateTooltipBorderColor, hideTooltip, GRAPH_ALGOS, renderLoop } from "./uiControls.js";
 import { toTitleCase } from "./util.js";
 
 const canvasWrapper = document.querySelector(".canvas-wrapper");
@@ -39,6 +39,8 @@ export function attachCanvasEventListeners() {
 }
 
 export function resizeCanvas() {
+    renderLoop.cancel();
+
     canvas.width = 0;
     canvas.height = 0;
 
@@ -48,9 +50,10 @@ export function resizeCanvas() {
 }
 
 export function clearCanvas() {
+    renderLoop.cancel();
+
     ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    hideTooltip();
 }
 
 function screenToWorld(x, y) {
@@ -471,7 +474,10 @@ export function getClosestNodeToMouse(data, event) {
 
         const world = screenToWorld(event.clientX - rect.x, event.clientY - rect.y);
 
-        if (Math.abs(v.pos.x - world.x) <= VERTEX_RADIUS && Math.abs(v.pos.y - world.y) <= VERTEX_RADIUS) {
+        const dx = v.pos.x - world.x;
+        const dy = v.pos.y - world.y;
+
+        if (dx * dx + dy * dy <= VERTEX_RADIUS * VERTEX_RADIUS) {
             found = k;
             break;
         }

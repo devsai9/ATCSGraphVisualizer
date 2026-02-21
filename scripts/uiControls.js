@@ -9,7 +9,7 @@ export const DATA_MODES = Object.freeze({
 
 export const GRAPH_ALGOS = Object.freeze({
     CARTESIAN: 15,
-    RADIAL: 12
+    RADIAL: 11
 });
 
 export function dataModeToString(dataMode) {
@@ -24,6 +24,35 @@ export const config = {
     pathEnabled: false,
     tooltipsEnabled: false,
 }
+
+export const renderLoop = {
+    active: false,
+    enabled: true,
+    animationId: null,
+
+    frame(data) {
+        if (!this.enabled) return;
+        
+        this.active = true;
+        drawFullGraph(data, false);
+        
+        if (this.enabled) this.animationId = window.requestAnimationFrame(() => this.frame(data));
+    },
+
+    cancel() {
+        if (this.animationId == null) return;
+        this.active = false;
+        this.enabled = false;
+        window.cancelAnimationFrame(this.animationId);
+    },
+
+    start(data) {
+        if (!this.active) {
+            this.enabled = true;
+            this.frame(data);
+        }
+    },
+};
 
 const IdataMode = document.querySelector("#dataMode");
 const IgraphAlgo = document.querySelector("#graphAlgo");
@@ -49,9 +78,8 @@ updateTextDependencies();
 
 export function attachUIEventListeners() {
     IdataMode.addEventListener("change", () => {
-        config.dataMode = config.dataMode == DATA_MODES.STUDENTS ? DATA_MODES.GROUPS : DATA_MODES.STUDENTS;
+        config.dataMode = IdataMode.value == "0" ? DATA_MODES.STUDENTS : DATA_MODES.GROUPS;
 
-        // if (config.graphEnabled) IdrawGraph.innerText = "Redraw";
         clearCanvas();
         config.graphEnabled = false;
         
@@ -62,7 +90,7 @@ export function attachUIEventListeners() {
     });
 
     IgraphAlgo.addEventListener("change", () => {
-        config.graphAlgo = config.graphAlgo == GRAPH_ALGOS.CARTESIAN ? GRAPH_ALGOS.RADIAL : GRAPH_ALGOS.CARTESIAN;
+        config.graphAlgo = IgraphAlgo.value == "0" ? GRAPH_ALGOS.CARTESIAN : GRAPH_ALGOS.RADIAL;
         handleAlgoChange(config.graphAlgo);
 
         clearCanvas();
@@ -77,8 +105,9 @@ export function attachUIEventListeners() {
     IdrawGraph.addEventListener("click", () => {
         config.graphEnabled = true;
         IdrawGraph.innerText = "Redraw";
-        drawFullGraph(data[config.dataMode], true);
+        // drawFullGraph(data[config.dataMode], true);
         updateConnectDropdowns(data[config.dataMode]);
+        renderLoop.start(data[config.dataMode]);
     });
 
     IresetGraphZoom.addEventListener("click", () => {
@@ -209,20 +238,6 @@ export function handleMouseMove(data, event) {
     updateTooltipBorderColor(v.colorH);
     updateTooltipPos(event.clientX + 7, event.clientY + 5);
 }
-
-const renderLoop = {
-    active: false,
-    frame(data) {
-        this.active = true;
-        drawFullGraph(data, false);
-        window.requestAnimationFrame(() => this.frame(data));
-    },
-    start(data) {
-        if (!this.active) {
-            this.frame(data);
-        }
-    },
-};
 
 export function handleScrollWheel(data, event) {
     event.preventDefault();
