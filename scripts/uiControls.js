@@ -1,10 +1,15 @@
 import { data, hamPaths } from "./data.js";
-import { drawGraph, drawPath, clearCanvas, connectTwoNodes } from "./canvas.js";
+import { drawFullGraph, drawPath, clearCanvas, connectTwoNodes, handleAlgoChange } from "./canvas.js";
 import { clamp, toTitleCase } from "./util.js";
 
 export const DATA_MODES = Object.freeze({
     STUDENTS: 0,
     GROUPS: 1
+});
+
+export const GRAPH_ALGOS = Object.freeze({
+    CARTESIAN: 20,
+    RADIAL: 12
 });
 
 export function dataModeToString(dataMode) {
@@ -14,13 +19,14 @@ export function dataModeToString(dataMode) {
 
 export const config = {
     dataMode: DATA_MODES.GROUPS,
+    graphAlgo: GRAPH_ALGOS.CARTESIAN,
     graphEnabled: false,
     pathEnabled: false,
     tooltipsEnabled: false,
 }
 
 const IdataMode = document.querySelector("#dataMode");
-
+const IgraphAlgo = document.querySelector("#graphAlgo");
 const IdrawGraph = document.querySelector("#drawGraph");
 
 const IconnectFrom = document.querySelector("#connectFrom");
@@ -44,6 +50,20 @@ export function attachUIEventListeners() {
         // if (config.graphEnabled) IdrawGraph.innerText = "Redraw";
         clearCanvas();
         config.graphEnabled = false;
+        
+        IconnectFrom.innerHTML = "<option value=\"Draw First\">Draw First</option>";
+        IconnectTo.innerHTML = "<option value=\"Draw First\">Draw First</option>";
+
+        updateTextDependencies();
+    });
+
+    IgraphAlgo.addEventListener("change", () => {
+        config.graphAlgo = config.graphAlgo == GRAPH_ALGOS.CARTESIAN ? GRAPH_ALGOS.RADIAL : GRAPH_ALGOS.CARTESIAN;
+        handleAlgoChange(config.graphAlgo);
+
+        clearCanvas();
+        config.graphEnabled = false;
+        
         IconnectFrom.innerHTML = "<option value=\"Draw First\">Draw First</option>";
         IconnectTo.innerHTML = "<option value=\"Draw First\">Draw First</option>";
 
@@ -53,7 +73,7 @@ export function attachUIEventListeners() {
     IdrawGraph.addEventListener("click", () => {
         config.graphEnabled = true;
         IdrawGraph.innerText = "Redraw";
-        drawGraph(data[config.dataMode], true);
+        drawFullGraph(data[config.dataMode], true);
         updateConnectDropdowns(data[config.dataMode]);
     });
 
@@ -64,7 +84,7 @@ export function attachUIEventListeners() {
 
         if (config.pathEnabled) {
             clearCanvas();
-            if (config.graphEnabled) drawGraph(data[config.dataMode], false);
+            if (config.graphEnabled) drawFullGraph(data[config.dataMode], false);
         }
         config.pathEnabled = true;
         
@@ -77,7 +97,7 @@ export function attachUIEventListeners() {
     IdrawHamPath.addEventListener("click", () => {
         if (config.pathEnabled) {
             clearCanvas();
-            if (config.graphEnabled) drawGraph(data[config.dataMode], false);
+            if (config.graphEnabled) drawFullGraph(data[config.dataMode], false);
         }
         config.pathEnabled = true;
         drawPath(data[config.dataMode], hamPaths[config.dataMode]);
@@ -90,7 +110,7 @@ export function attachUIEventListeners() {
 
         if (config.pathEnabled) {
             clearCanvas();
-            if (config.graphEnabled) drawGraph(data[config.dataMode], false);
+            if (config.graphEnabled) drawFullGraph(data[config.dataMode], false);
         }
         config.pathEnabled = true;
         
@@ -102,7 +122,7 @@ export function attachUIEventListeners() {
 
     IclearHamPath.addEventListener("click", () => {
         clearCanvas();
-        if (config.graphEnabled) drawGraph(data[config.dataMode], false);
+        if (config.graphEnabled) drawFullGraph(data[config.dataMode], false);
         config.pathEnabled = false;
     });
 

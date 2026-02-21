@@ -1,4 +1,4 @@
-import { config, updateTooltipText, updateTooltipPos, updateTooltipBorderColor, hideTooltip, getTooltipRect } from "./uiControls.js";
+import { config, updateTooltipText, updateTooltipPos, updateTooltipBorderColor, hideTooltip, getTooltipRect, GRAPH_ALGOS } from "./uiControls.js";
 import { toTitleCase } from "./util.js";
 
 const canvasWrapper = document.querySelector(".canvas-wrapper");
@@ -6,7 +6,7 @@ const canvas = document.querySelector("#canvas");
 const ctx = canvas.getContext("2d");
 
 const drawPositions = [];
-const VERTEX_RADIUS = 20;
+let VERTEX_RADIUS = 20;
 
 export function resizeCanvas() {
     canvas.width = 0;
@@ -22,31 +22,60 @@ export function clearCanvas() {
     hideTooltip();
 }
 
-export function drawGraph(data, redoVertexPositions = false) {
+export function handleAlgoChange(graphAlgo) {
+    VERTEX_RADIUS = graphAlgo;
+}
+
+export function drawFullGraph(data, redoVertexPositions = false) {
     if (window.innerWidth < 900) return;
     
     resizeCanvas();
     clearCanvas();
 
-    const MAX_DRAW_ATTEMPTS = 100;
-
     const X_LOWER = VERTEX_RADIUS;
     const X_UPPER = ctx.canvas.width - VERTEX_RADIUS;
     const Y_LOWER = VERTEX_RADIUS;
     const Y_UPPER = ctx.canvas.height - VERTEX_RADIUS;
-
+    
     // Determine vertex draw locations
     if (redoVertexPositions || drawPositions.length == 0) {
         drawPositions.length = 0;
-
-        for (const k of Object.keys(data)) {
+        
+        const sortedKeys = Object.keys(data).sort((a, b) => {
+            return Object.keys(data[b].connections).length - Object.keys(data[a].connections).length;
+        });
+        
+        const centerX = canvas.width / 2;
+        const centerY = canvas.height / 2;
+        const maxRadius = Math.min(centerX, centerY) - VERTEX_RADIUS;
+        
+        const degrees = Object.keys(data).map(k => Object.keys(data[k].connections).length);
+        const maxDegree = Math.max(...degrees, 1);
+        
+        for (const k of sortedKeys) {
             let x, y;
             let attempts = 0;
             let valid = false;
+            
+            const degree = Object.keys(data[k].connections).length;
+            const normDegree = degree / maxDegree;
+            const bias = 1 - normDegree;
+            
+            const MAX_DRAW_ATTEMPTS = config.graphAlgo == GRAPH_ALGOS.CARTESIAN ? 100 : (50 + 150 * normDegree);
+
+            data[k]["pos"] = { x: null, y: null };
 
             while (!valid && attempts < MAX_DRAW_ATTEMPTS) {
-                x = Math.random() * (X_UPPER - X_LOWER) + X_LOWER;
-                y = Math.random() * (Y_UPPER - Y_LOWER) + Y_LOWER;
+                const angle = Math.random() * 2 * Math.PI;
+                const r = bias * maxRadius * (0.6 + 0.4 * Math.random());
+
+                if (config.graphAlgo == GRAPH_ALGOS.CARTESIAN) {
+                    x = Math.random() * (X_UPPER - X_LOWER) + X_LOWER;
+                    y = Math.random() * (Y_UPPER - Y_LOWER) + Y_LOWER;
+                } else if (config.graphAlgo == GRAPH_ALGOS.RADIAL) {
+                    x = centerX + r * Math.cos(angle);
+                    y = centerY + r * Math.sin(angle);
+                }
 
                 valid = true;
 
