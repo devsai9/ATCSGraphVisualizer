@@ -210,6 +210,25 @@ export function handleMouseMove(data, event) {
     updateTooltipPos(event.clientX + 7, event.clientY + 5);
 }
 
+const renderLoop = {
+    // enable: false,
+    active: false,
+    frame(data) {
+        // if (!this.active) {
+        //     return;
+        // }
+        this.active = true;
+        // this.enable = true;
+        drawFullGraph(data, false);
+        window.requestAnimationFrame(() => this.frame(data));
+    },
+    start(data) {
+        if (!this.active) {
+            this.frame(data);
+        }
+    },
+};
+
 export function handleScrollWheel(data, event) {
     event.preventDefault();
 
@@ -225,7 +244,7 @@ export function handleScrollWheel(data, event) {
 
     zoomAt(mouseX, mouseY, factor);
 
-    drawFullGraph(data, false);
+    renderLoop.start(data);
 }
 
 function disableAllElems(className) {
