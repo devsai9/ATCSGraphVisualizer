@@ -101,8 +101,9 @@ body {
     margin-top: 5px;
 }
 
-.control select:focus, .control select:focus-within, .control input:focus, .control input:focus-within {
-    outline: 1px solid white;
+.control select:focus-visible, .control input:focus-visible {
+    outline: 3px solid white;
+    outline-offset: -2px;
 }
 
 .control button {
@@ -138,8 +139,9 @@ body {
     cursor: not-allowed;
 }
 
-.control button:focus {
-    outline: 2px solid white;
+.control button:focus-visible {
+    outline: 3px solid white;
+    outline-offset: -2px;
 }
 
 .tooltip {
