@@ -126,9 +126,13 @@ function updateConnectDropdowns(data) {
     const keys = Object.keys(data).sort();
 
     for (let i = 0; i < keys.length; i++) {
+        const text = data[keys[i]].label || toTitleCase(keys[i]);
+        const truncText = text.length > 19 ? text.substring(0, 19) + "..." : text;
+
         const option = document.createElement("option");
         option.value = keys[i];
-        option.innerText = data[keys[i]].label || toTitleCase(keys[i]);
+        option.title = text;
+        option.innerText = truncText;
 
         IconnectFrom.appendChild(option.cloneNode(true));
 
