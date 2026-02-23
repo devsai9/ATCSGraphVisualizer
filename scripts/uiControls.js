@@ -75,6 +75,12 @@ export function attachUIEventListeners() {
     });
 
     IdrawGraph.addEventListener("click", () => {
+        config.dataMode = IdataMode.value == "0" ? DATA_MODES.STUDENTS : DATA_MODES.GROUPS;
+        handleDataModeChange();
+        
+        config.graphAlgo = IgraphAlgo.value == "0" ? GRAPH_ALGOS.CARTESIAN : GRAPH_ALGOS.RADIAL;
+        handleAlgoChange(config.graphAlgo);
+
         config.graphEnabled = true;
         IdrawGraph.innerText = "Redraw";
         // drawFullGraph(data[config.dataMode], true);
