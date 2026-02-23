@@ -1,5 +1,5 @@
 import { data, hamPaths } from "./data.js";
-import { drawFullGraph, drawPath, clearCanvas, connectTwoNodes, handleAlgoChange, getClosestNodeToMouse, resetZoom, zoomAt, canvas, drawPathBusy, handleDataModeChange } from "./canvas.js";
+import { drawFullGraph, drawPath, clearCanvas, connectTwoNodes, handleAlgoChange, getClosestNodeToMouse, resetZoom, zoomAt, canvas, drawPathBusy, handleDataModeChange, renderLoop } from "./canvas.js";
 import { clamp, toTitleCase } from "./util.js";
 
 export const DATA_MODES = Object.freeze({
@@ -24,35 +24,6 @@ export const config = {
     pathEnabled: false,
     tooltipsEnabled: false,
 }
-
-export const renderLoop = {
-    active: false,
-    enabled: true,
-    animationId: null,
-
-    frame(data) {
-        if (!this.enabled) return;
-
-        this.active = true;
-        drawFullGraph(data, false);
-        
-        if (this.enabled) this.animationId = window.requestAnimationFrame(() => this.frame(data));
-    },
-
-    cancel() {
-        if (this.animationId == null) return;
-        this.active = false;
-        this.enabled = false;
-        window.cancelAnimationFrame(this.animationId);
-    },
-
-    start(data) {
-        if (!this.active) {
-            this.enabled = true;
-            this.frame(data);
-        }
-    },
-};
 
 const IdataMode = document.querySelector("#dataMode");
 const IgraphAlgo = document.querySelector("#graphAlgo");
@@ -108,7 +79,7 @@ export function attachUIEventListeners() {
         IdrawGraph.innerText = "Redraw";
         // drawFullGraph(data[config.dataMode], true);
         updateConnectDropdowns(data[config.dataMode]);
-        renderLoop.start(data[config.dataMode]);
+        renderLoop.start(data[config.dataMode], 1);
     });
 
     IresetGraphZoom.addEventListener("click", () => {
@@ -255,7 +226,7 @@ export function handleScrollWheel(data, event) {
 
     zoomAt(mouseX, mouseY, factor);
 
-    renderLoop.start(data);
+    renderLoop.start(data, 5);
 }
 
 function disableAllElems(className) {
