@@ -1,5 +1,5 @@
 import { data } from "./data.js";
-import { config, updateTooltipText, updateTooltipPos, updateTooltipBorderColor, hideTooltip, GRAPH_ALGOS, renderLoop } from "./uiControls.js";
+import { config, updateTooltipText, updateTooltipPos, updateTooltipBorderColor, hideTooltip, GRAPH_ALGOS } from "./uiControls.js";
 import { toTitleCase } from "./util.js";
 
 const canvasWrapper = document.querySelector(".canvas-wrapper");
@@ -43,7 +43,7 @@ export function screenTooSmall() {
 }
 
 export function resizeCanvas() {
-    renderLoop.cancel();
+    // renderLoop.cancel();
     drawPositions.length = 0;
 
     canvas.width = 0;
@@ -55,7 +55,7 @@ export function resizeCanvas() {
 }
 
 export function clearCanvas() {
-    renderLoop.cancel();
+    // renderLoop.cancel();
 
     ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -118,7 +118,8 @@ function onMouseMove(event) {
             camera.offsetX = cameraStartX + dx;
             camera.offsetY = cameraStartY + dy;
 
-            drawFullGraph(data[config.dataMode], false);
+            // drawFullGraph(data[config.dataMode], false);
+            renderLoop.start(data[config.dataMode], 1);
         }
     }
 
@@ -188,9 +189,33 @@ export function handleAlgoChange(graphAlgo) {
     drawPositions.length = 0;
 }
 
+export const renderLoop = {
+    remaining: 0,
+    looping: false,
+
+    frame(data) {
+        if (this.remaining == 0) {
+            this.looping = false;
+            return;
+        }
+        drawFullGraph(data, false);
+        this.remaining--;
+        window.requestAnimationFrame(() => {
+            this.frame(data);
+        });
+    },
+
+    start(data, extraFrames) {
+        this.remaining = Math.max(this.remaining, extraFrames);
+        if (!this.looping) {
+            this.looping = true;
+            this.frame(data);
+        }
+    },
+};
+
 export function drawFullGraph(data, redoVertexPositions = false) {
     if (screenTooSmall()) return;
-    
     // resizeCanvas();
     clearCanvas();
     
