@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="container">
         <div class="canvas-wrapper">
@@ -58,8 +60,8 @@
             <div class="control" data-control="hamPath">
                 <p class="title">HamPath</p>
                 <p class="DEPdataMode"></p>
-                <button id="drawHamPath" class="DEPanimateHamPath DEPconnect">Draw</button>
-                <button id="animateHamPath" class="DEPanimateHamPath DEPconnect">Animate</button>
+                <button id="drawHamPath" class="DEPanimateHamPath DEPconnect" disabled>Draw</button>
+                <button id="animateHamPath" class="DEPanimateHamPath DEPconnect" disabled>Animate</button>
                 <button id="clearHamPath" class="DEPanimateHamPath DEPconnect">Remove</button>
                 <br>
                 <label for="animateHamPathDelay">Delay (ms):</label>
@@ -83,4 +85,5 @@
 
     <script src="scripts/app.js" type="module"></script>
 </body>
+
 </html>

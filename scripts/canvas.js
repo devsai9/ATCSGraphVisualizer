@@ -1,5 +1,12 @@
 import { data } from "./data.js";
-import { config, updateTooltipText, updateTooltipPos, updateTooltipBorderColor, hideTooltip, GRAPH_ALGOS } from "./uiControls.js";
+import {
+    config,
+    updateTooltipText,
+    updateTooltipPos,
+    updateTooltipBorderColor,
+    hideTooltip,
+    GRAPH_ALGOS,
+} from "./uiControls.js";
 import { toTitleCase } from "./util.js";
 
 const canvasWrapper = document.querySelector(".canvas-wrapper");
@@ -12,7 +19,7 @@ let VERTEX_RADIUS = GRAPH_ALGOS.CARTESIAN;
 const camera = {
     scale: 1,
     offsetX: 0,
-    offsetY: 0
+    offsetY: 0,
 };
 
 let isDragging = false;
@@ -64,7 +71,7 @@ export function clearCanvas() {
 function screenToWorld(x, y) {
     return {
         x: (x - camera.offsetX) / camera.scale,
-        y: (y - camera.offsetY) / camera.scale
+        y: (y - camera.offsetY) / camera.scale,
     };
 }
 
@@ -72,8 +79,10 @@ export function zoomAt(screenX, screenY, factor) {
     const prevScale = camera.scale;
     const newScale = prevScale * factor;
 
-    camera.offsetX = screenX - (screenX - camera.offsetX) * (newScale / prevScale);
-    camera.offsetY = screenY - (screenY - camera.offsetY) * (newScale / prevScale);
+    camera.offsetX =
+        screenX - (screenX - camera.offsetX) * (newScale / prevScale);
+    camera.offsetY =
+        screenY - (screenY - camera.offsetY) * (newScale / prevScale);
 
     camera.scale = newScale;
 }
@@ -106,7 +115,7 @@ function onMouseMove(event) {
 
     if (isDragging) {
         lastHighlighted = null;
-        
+
         const dx = event.clientX - dragStartX;
         const dy = event.clientY - dragStartY;
 
@@ -218,46 +227,52 @@ export function drawFullGraph(data, redoVertexPositions = false) {
     if (screenTooSmall()) return;
     // resizeCanvas();
     clearCanvas();
-    
+
     ctx.setTransform(
         camera.scale,
         0,
         0,
         camera.scale,
         camera.offsetX,
-        camera.offsetY
+        camera.offsetY,
     );
 
     const X_LOWER = VERTEX_RADIUS;
     const X_UPPER = ctx.canvas.width - VERTEX_RADIUS;
     const Y_LOWER = VERTEX_RADIUS;
     const Y_UPPER = ctx.canvas.height - VERTEX_RADIUS;
-    
+
     // Determine vertex draw locations
     if (redoVertexPositions || drawPositions.length == 0) {
         drawPositions.length = 0;
-        
+
         const sortedKeys = Object.keys(data).sort((a, b) => {
-            return Object.keys(data[b].connections).length - Object.keys(data[a].connections).length;
+            return (
+                Object.keys(data[b].connections).length -
+                Object.keys(data[a].connections).length
+            );
         });
-        
+
         const centerX = canvas.width / 2;
         const centerY = canvas.height / 2;
         const maxRadius = Math.min(centerX, centerY) - VERTEX_RADIUS;
-        
-        const degrees = Object.keys(data).map(k => Object.keys(data[k].connections).length);
+
+        const degrees = Object.keys(data).map((k) => Object.keys(data[k].connections).length);
         const maxDegree = Math.max(...degrees, 1);
-        
+
         for (const k of sortedKeys) {
             let x, y;
             let attempts = 0;
             let valid = false;
-            
+
             const degree = Object.keys(data[k].connections).length;
             const normDegree = degree / maxDegree;
             const bias = 1 - normDegree;
-            
-            const MAX_DRAW_ATTEMPTS = config.graphAlgo == GRAPH_ALGOS.CARTESIAN ? 100 : (50 + 150 * normDegree);
+
+            const MAX_DRAW_ATTEMPTS =
+                config.graphAlgo == GRAPH_ALGOS.CARTESIAN
+                    ? 100
+                    : 50 + 150 * normDegree;
 
             data[k]["pos"] = { x: null, y: null };
 
@@ -278,8 +293,8 @@ export function drawFullGraph(data, redoVertexPositions = false) {
                 for (const p of drawPositions) {
                     const dx = x - p.x;
                     const dy = y - p.y;
-                    
-                    if ((dx ** 2) + (dy ** 2) < (VERTEX_RADIUS * 2) ** 2) {
+
+                    if (dx ** 2 + dy ** 2 < (VERTEX_RADIUS * 2) ** 2) {
                         valid = false;
                         break;
                     }
@@ -305,7 +320,7 @@ export function drawFullGraph(data, redoVertexPositions = false) {
 
 export function highlistNodeFirstDegree(data, k) {
     if (k == null || data[k] == null) return;
-    
+
     clearCanvas();
 
     ctx.setTransform(
@@ -314,9 +329,9 @@ export function highlistNodeFirstDegree(data, k) {
         0,
         camera.scale,
         camera.offsetX,
-        camera.offsetY
+        camera.offsetY,
     );
-    
+
     drawEdges(data, { [k]: data[k] });
 
     const nodesToDraw = { k: data[k] };
@@ -329,14 +344,16 @@ export function highlistNodeFirstDegree(data, k) {
 
 function drawEdges(lookupData, drawData) {
     ctx.strokeStyle = "#cccccc";
-    ctx.lineWidth = 2;
+    ctx.lineWidth = 1;
 
     const paintedEdges = [];
     for (const k of Object.keys(drawData)) {
         const v = drawData[k];
 
         for (const c of Object.keys(v.connections)) {
-            const includes = paintedEdges.filter((item) => item.from == c && item.to == k);
+            const includes = paintedEdges.filter(
+                (item) => item.from == c && item.to == k,
+            );
             if (includes.length > 0) continue;
 
             ctx.beginPath();
@@ -363,7 +380,7 @@ function drawNodes(drawData, emphasizeFirst = false) {
 
         if (i == 0 && emphasizeFirst) {
             ctx.lineWidth = 6;
-            ctx.strokeStyle = 'white';
+            ctx.strokeStyle = "white";
             ctx.stroke();
         }
     }
@@ -380,7 +397,12 @@ export function drawPath(data, vertices, animateDelay = 0, onComplete = () => {}
 
     // Preliminary check
     for (const v of vertices) {
-        if (data[v] == null || data[v]["pos"] == null || data[v].pos.x == null || data[v].pos.y == null) {
+        if (
+            data[v] == null ||
+            data[v]["pos"] == null ||
+            data[v].pos.x == null ||
+            data[v].pos.y == null
+        ) {
             // alert("Please draw the graph in this mode first");
             onComplete();
             return;
@@ -397,7 +419,7 @@ export function drawPath(data, vertices, animateDelay = 0, onComplete = () => {}
         0,
         camera.scale,
         camera.offsetX,
-        camera.offsetY
+        camera.offsetY,
     );
 
     drawEdges(data, data);
@@ -424,10 +446,13 @@ export function drawPath(data, vertices, animateDelay = 0, onComplete = () => {}
 
         if (animateDelay > 0) {
             const screenX = curr.pos.x * camera.scale + camera.offsetX;
-            const screenY = (curr.pos.y - VERTEX_RADIUS) * camera.scale + camera.offsetY;
+            const screenY =
+                (curr.pos.y - VERTEX_RADIUS) * camera.scale + camera.offsetY;
             updateTooltipPos(screenX, screenY, true, true);
 
-            updateTooltipText(data[vertices[idx]].label || toTitleCase(vertices[idx]));
+            updateTooltipText(
+                data[vertices[idx]].label || toTitleCase(vertices[idx]),
+            );
             updateTooltipBorderColor(curr.colorH);
         }
 
@@ -446,7 +471,10 @@ export function drawPath(data, vertices, animateDelay = 0, onComplete = () => {}
 
     ctx.lineWidth = 2;
     for (let i = 1; i < vertices.length; i++) {
-        setTimeout(() => drawEdge(i), i > 1 ? (i - 1) * animateDelay : Math.min(animateDelay, 150));
+        setTimeout(
+            () => drawEdge(i),
+            i > 1 ? (i - 1) * animateDelay : Math.min(animateDelay, 150),
+        );
     }
 }
 
@@ -494,7 +522,7 @@ export function connectTwoNodes(data, start, target, onComplete = () => {}) {
         path.unshift(curr);
         curr = parent[curr];
     }
-    
+
     drawPath(data, path, 750, onComplete);
 }
 
@@ -502,14 +530,19 @@ export function getClosestNodeToMouse(data, event) {
     if (!config.graphEnabled) return null;
 
     const rect = canvas.getBoundingClientRect();
-    if (!(event.clientX > rect.x && event.clientX < rect.x + rect.width)) return null;
-    if (!(event.clientY > rect.y && event.clientY < rect.y + rect.height)) return null;
+    if (!(event.clientX > rect.x && event.clientX < rect.x + rect.width))
+        return null;
+    if (!(event.clientY > rect.y && event.clientY < rect.y + rect.height))
+        return null;
 
     let found = null;
     for (const k of Object.keys(data)) {
         const v = data[k];
 
-        const world = screenToWorld(event.clientX - rect.x, event.clientY - rect.y);
+        const world = screenToWorld(
+            event.clientX - rect.x,
+            event.clientY - rect.y,
+        );
 
         const dx = v.pos.x - world.x;
         const dy = v.pos.y - world.y;

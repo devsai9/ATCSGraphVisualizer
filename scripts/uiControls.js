@@ -1,15 +1,28 @@
 import { data, hamPaths } from "./data.js";
-import { drawFullGraph, drawPath, clearCanvas, connectTwoNodes, handleAlgoChange, getClosestNodeToMouse, resetZoom, zoomAt, canvas, drawPathBusy, handleDataModeChange, renderLoop } from "./canvas.js";
+import {
+    drawFullGraph,
+    drawPath,
+    clearCanvas,
+    connectTwoNodes,
+    handleAlgoChange,
+    getClosestNodeToMouse,
+    resetZoom,
+    zoomAt,
+    canvas,
+    drawPathBusy,
+    handleDataModeChange,
+    renderLoop,
+} from "./canvas.js";
 import { clamp, toTitleCase } from "./util.js";
 
 export const DATA_MODES = Object.freeze({
     STUDENTS: 0,
-    GROUPS: 1
+    GROUPS: 1,
 });
 
 export const GRAPH_ALGOS = Object.freeze({
     CARTESIAN: 15,
-    RADIAL: 11
+    RADIAL: 11,
 });
 
 export function dataModeToString(dataMode) {
@@ -23,7 +36,7 @@ export const config = {
     graphEnabled: false,
     pathEnabled: false,
     tooltipsEnabled: false,
-}
+};
 
 const IdataMode = document.querySelector("#dataMode");
 const IgraphAlgo = document.querySelector("#graphAlgo");
@@ -49,36 +62,54 @@ updateTextDependencies();
 
 export function attachUIEventListeners() {
     IdataMode.addEventListener("change", () => {
-        config.dataMode = IdataMode.value == "0" ? DATA_MODES.STUDENTS : DATA_MODES.GROUPS;
+        config.dataMode =
+            IdataMode.value == "0" ? DATA_MODES.STUDENTS : DATA_MODES.GROUPS;
         handleDataModeChange();
+
+        if (config.dataMode == DATA_MODES.GROUPS) {
+            IdrawHamPath.setAttribute("disabled", "true");
+            IanimateHamPath.setAttribute("disabled", "true");
+        } else {
+            IdrawHamPath.removeAttribute("disabled");
+            IanimateHamPath.removeAttribute("disabled");
+        }
 
         clearCanvas();
         config.graphEnabled = false;
-        
-        IconnectFrom.innerHTML = "<option value=\"Draw First\">Draw First</option>";
-        IconnectTo.innerHTML = "<option value=\"Draw First\">Draw First</option>";
+
+        IconnectFrom.innerHTML =
+            '<option value="Draw First">Draw First</option>';
+        IconnectTo.innerHTML = '<option value="Draw First">Draw First</option>';
 
         updateTextDependencies();
     });
 
     IgraphAlgo.addEventListener("change", () => {
-        config.graphAlgo = IgraphAlgo.value == "0" ? GRAPH_ALGOS.CARTESIAN : GRAPH_ALGOS.RADIAL;
+        config.graphAlgo =
+            IgraphAlgo.value == "0"
+                ? GRAPH_ALGOS.CARTESIAN
+                : GRAPH_ALGOS.RADIAL;
         handleAlgoChange(config.graphAlgo);
 
         clearCanvas();
         config.graphEnabled = false;
-        
-        IconnectFrom.innerHTML = "<option value=\"Draw First\">Draw First</option>";
-        IconnectTo.innerHTML = "<option value=\"Draw First\">Draw First</option>";
+
+        IconnectFrom.innerHTML =
+            '<option value="Draw First">Draw First</option>';
+        IconnectTo.innerHTML = '<option value="Draw First">Draw First</option>';
 
         updateTextDependencies();
     });
 
     IdrawGraph.addEventListener("click", () => {
-        config.dataMode = IdataMode.value == "0" ? DATA_MODES.STUDENTS : DATA_MODES.GROUPS;
+        config.dataMode =
+            IdataMode.value == "0" ? DATA_MODES.STUDENTS : DATA_MODES.GROUPS;
         handleDataModeChange();
-        
-        config.graphAlgo = IgraphAlgo.value == "0" ? GRAPH_ALGOS.CARTESIAN : GRAPH_ALGOS.RADIAL;
+
+        config.graphAlgo =
+            IgraphAlgo.value == "0"
+                ? GRAPH_ALGOS.CARTESIAN
+                : GRAPH_ALGOS.RADIAL;
         handleAlgoChange(config.graphAlgo);
 
         config.graphEnabled = true;
@@ -97,14 +128,14 @@ export function attachUIEventListeners() {
 
     IzoomGraphIn.addEventListener("click", () => {
         if (!config.graphEnabled) return;
-        
-        zoomAt(canvas.width / 2, canvas.height / 2, 1.2)
+
+        zoomAt(canvas.width / 2, canvas.height / 2, 1.2);
         drawFullGraph(data[config.dataMode], false);
     });
 
     IzoomGraphOut.addEventListener("click", () => {
         if (!config.graphEnabled) return;
-        
+
         zoomAt(canvas.width / 2, canvas.height / 2, 1 / 1.2);
         drawFullGraph(data[config.dataMode], false);
     });
@@ -116,20 +147,27 @@ export function attachUIEventListeners() {
 
         if (config.pathEnabled) {
             clearCanvas();
-            if (config.graphEnabled) drawFullGraph(data[config.dataMode], false);
+            if (config.graphEnabled)
+                drawFullGraph(data[config.dataMode], false);
         }
         config.pathEnabled = true;
-        
-        connectTwoNodes(data[config.dataMode], IconnectFrom.value, IconnectTo.value, () => {
-            enableAllElems("DEPconnect");
-            if (tempTooltip) ItoggleTooltips.click();
-        });
+
+        connectTwoNodes(
+            data[config.dataMode],
+            IconnectFrom.value,
+            IconnectTo.value,
+            () => {
+                enableAllElems("DEPconnect");
+                if (tempTooltip) ItoggleTooltips.click();
+            },
+        );
     });
 
     IdrawHamPath.addEventListener("click", () => {
         if (config.pathEnabled) {
             clearCanvas();
-            if (config.graphEnabled) drawFullGraph(data[config.dataMode], false);
+            if (config.graphEnabled)
+                drawFullGraph(data[config.dataMode], false);
         }
         config.pathEnabled = true;
         drawPath(data[config.dataMode], hamPaths[config.dataMode]);
@@ -142,14 +180,20 @@ export function attachUIEventListeners() {
 
         if (config.pathEnabled) {
             clearCanvas();
-            if (config.graphEnabled) drawFullGraph(data[config.dataMode], false);
+            if (config.graphEnabled)
+                drawFullGraph(data[config.dataMode], false);
         }
         config.pathEnabled = true;
-        
-        drawPath(data[config.dataMode], hamPaths[config.dataMode], parseInt(IanimateHamPathDelay.value) || 250, () => {
-            enableAllElems("DEPanimateHamPath");
-            if (tempTooltip) ItoggleTooltips.click();
-        });
+
+        drawPath(
+            data[config.dataMode],
+            hamPaths[config.dataMode],
+            parseInt(IanimateHamPathDelay.value) || 250,
+            () => {
+                enableAllElems("DEPanimateHamPath");
+                if (tempTooltip) ItoggleTooltips.click();
+            },
+        );
     });
 
     IclearHamPath.addEventListener("click", () => {
@@ -159,14 +203,18 @@ export function attachUIEventListeners() {
     });
 
     IanimateHamPathDelay.addEventListener("change", () => {
-        IanimateHamPathDelay.value = clamp(100, parseInt(IanimateHamPathDelay.value) || 250, 2000);
+        IanimateHamPathDelay.value = clamp(
+            100,
+            parseInt(IanimateHamPathDelay.value) || 250,
+            2000,
+        );
     });
 
     ItoggleTooltips.addEventListener("click", () => {
         hideTooltip();
         config.tooltipsEnabled = !config.tooltipsEnabled;
-        
-        const map = { "Enable": "Disable", "Disable": "Enable" };
+
+        const map = { Enable: "Disable", Disable: "Enable" };
         ItoggleTooltips.innerText = map[ItoggleTooltips.innerText || "Error"];
     });
 }
@@ -179,7 +227,8 @@ function updateConnectDropdowns(data) {
 
     for (let i = 0; i < keys.length; i++) {
         const text = data[keys[i]].label || toTitleCase(keys[i]);
-        const truncText = text.length > 19 ? text.substring(0, 19) + "..." : text;
+        const truncText =
+            text.length > 19 ? text.substring(0, 19) + "..." : text;
 
         const option = document.createElement("option");
         option.value = keys[i];
@@ -208,7 +257,7 @@ export function handleMouseMove(data, event) {
         hideTooltip();
         return true;
     }
-    
+
     const v = data[closestNode];
 
     tooltip.style.display = "block";
@@ -218,6 +267,8 @@ export function handleMouseMove(data, event) {
 }
 
 export function handleScrollWheel(data, event) {
+    if (Object.keys(data).length > 150) return true;
+
     event.preventDefault();
 
     if (!config.graphEnabled || drawPathBusy) return;
@@ -236,11 +287,15 @@ export function handleScrollWheel(data, event) {
 }
 
 function disableAllElems(className) {
-    document.querySelectorAll("." + className).forEach((elem) => elem.setAttribute("disabled", "true"));
+    document
+        .querySelectorAll("." + className)
+        .forEach((elem) => elem.setAttribute("disabled", "true"));
 }
 
 function enableAllElems(className) {
-    document.querySelectorAll("." + className).forEach((elem) => elem.removeAttribute("disabled"));
+    document
+        .querySelectorAll("." + className)
+        .forEach((elem) => elem.removeAttribute("disabled"));
 }
 
 export function hideTooltip() {
@@ -270,18 +325,21 @@ export function updateTooltipPos(x, y, centerX = false, lowerY = false) {
     let finalY;
 
     // Horizontal centering
-    if (centerX) finalX = x - (rect.width / 2);
+    if (centerX) finalX = x - rect.width / 2;
 
     // Clamp horizontal
-    if (finalX + rect.width > window.innerWidth) finalX = window.innerWidth - rect.width - SPACING;
+    if (finalX + rect.width > window.innerWidth)
+        finalX = window.innerWidth - rect.width - SPACING;
     if (finalX < SPACING) finalX = SPACING;
 
     // Vertical placing
-    if (lowerY) finalY = y + SPACING; // small spacing below anchor
+    if (lowerY)
+        finalY = y + SPACING; // small spacing below anchor
     else finalY = y - rect.height - SPACING; // above anchor
 
     // Clamp vertical
-    if (finalY + rect.height > window.innerHeight) finalY = window.innerHeight - rect.height - SPACING;
+    if (finalY + rect.height > window.innerHeight)
+        finalY = window.innerHeight - rect.height - SPACING;
     if (finalY < SPACING) finalY = SPACING;
 
     // tooltip.style.left = `${finalX}px`;
