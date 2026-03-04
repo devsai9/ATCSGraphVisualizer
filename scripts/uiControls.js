@@ -204,7 +204,7 @@ export function attachUIEventListeners() {
 
     IanimateHamPathDelay.addEventListener("change", () => {
         IanimateHamPathDelay.value = clamp(
-            100,
+            1,
             parseInt(IanimateHamPathDelay.value) || 250,
             2000,
         );
